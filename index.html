@@ -356,23 +356,77 @@ function nextColor() {
   if (!outfitColor) { alert('Please pick an outfit color 😊'); return; }
   showStep('placeStep');
 }
+
 function finish() {
   const place = document.getElementById('place').value;
   const custom = document.getElementById('customPlace').value.trim();
-  if (!place) { alert('Please choose a meeting place 😊'); return; }
-  if (place === 'Your suggestion' && !custom) {
-    alert('Please type your suggested place 😊'); return;
-  }
   const date = document.getElementById('date').value;
   const time = document.getElementById('time').value;
+
+  if (!date || date < '2026-10-19') {
+    alert('Please choose a valid date 😊');
+    return;
+  }
+
+  if (!time || !outfitColor || !place) {
+    alert('Please complete all your choices 😊');
+    return;
+  }
+
+  if (place === 'Your suggestion' && !custom) {
+    alert('Please type your suggested place 😊');
+    return;
+  }
+
+  const finalPlace = place === 'Your suggestion'
+    ? custom
+    : (custom || place);
+
+  // Replace this placeholder with your deployed Apps Script URL.
+  const endpoint = 'https://script.google.com/macros/s/AKfycbxkQe73VALxE5DtzSpvHXuVqDf3thcoCftuLYfhumWU7Mmfm70cn1JHwkEtjIk8fQ76/exec';
+
+  // Submit the answers using a hidden form.
+  // This avoids browser cross-origin response-reading restrictions.
+  const frame = document.createElement('iframe');
+  frame.name = 'submissionFrame';
+  frame.style.display = 'none';
+  document.body.appendChild(frame);
+
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = endpoint;
+  form.target = 'submissionFrame';
+  form.style.display = 'none';
+
+  const answers = {
+    answer: 'Yes',
+    date: date,
+    time: time,
+    color: outfitColor,
+    location: place,
+    customPlace: custom
+  };
+
+  Object.entries(answers).forEach(([key, value]) => {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = value;
+    form.appendChild(input);
+  });
+
+  document.body.appendChild(form);
+  form.submit();
+
   document.getElementById('summary').innerHTML =
     '<strong>📅 Date:</strong> ' + date + '<br><br>' +
     '<strong>⏰ Time:</strong> ' + time + '<br><br>' +
     '<strong>👕 My outfit:</strong> ' + outfitColor + '<br><br>' +
-    '<strong>📍 Place:</strong> ' +
-    (place === 'Your suggestion' ? custom : (custom || place));
+    '<strong>📍 Place:</strong> ' + finalPlace;
+
   showStep('finalStep');
 }
+
 </script>
 </body>
 </html>
