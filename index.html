@@ -2,979 +2,1387 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff5f8">
-<title>A Little Invitation for Heer 💌</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff4f6">
+  <title>A Little Plan for Heer ♡</title>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
-:root {
-  --rose: #bd557b;
-  --rose-dark: #8b3e5d;
-  --rose-light: #fff0f5;
-  --text: #684454;
-  --muted: #927481;
-  --border: #f0dce5;
-  --white: #fffdfd;
-}
+  <style>
+    :root {
+      --rose: #bd637e;
+      --rose-dark: #93445d;
+      --rose-light: #f8e5eb;
+      --blush: #fff4f6;
+      --cream: #fffaf7;
+      --ink: #49333a;
+      --muted: #907780;
+      --white: #ffffff;
+      --shadow: 0 18px 55px rgba(128, 69, 91, 0.12);
+    }
 
-* {
-  box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-html {
-  scroll-behavior: smooth;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  min-height: 100dvh;
-  padding: 34px 16px 92px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'DM Sans', Arial, sans-serif;
-  color: var(--text);
-  background:
-    radial-gradient(ellipse at 8% 12%, rgba(255,190,211,.45), transparent 38%),
-    radial-gradient(ellipse at 92% 85%, rgba(226,197,247,.38), transparent 40%),
-    linear-gradient(145deg, #fff9fb 0%, #fff0f5 52%, #f9f3ff 100%);
-  background-attachment: fixed;
-  overflow-x: hidden;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 22px 14px 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(245, 204, 216, 0.5), transparent 32%),
+        radial-gradient(circle at 90% 90%, rgba(255, 225, 229, 0.75), transparent 35%),
+        linear-gradient(135deg, #fff8f7, #fff0f4);
+    }
 
-body::before,
-body::after {
-  position: fixed;
-  z-index: 0;
-  pointer-events: none;
-  color: rgba(189,85,123,.10);
-  font-family: Georgia, serif;
-}
+    button, input {
+      font: inherit;
+    }
 
-body::before {
-  content: "♡";
-  top: 8%;
-  left: 5%;
-  font-size: 100px;
-  transform: rotate(-18deg);
-}
+    button {
+      -webkit-tap-highlight-color: transparent;
+    }
 
-body::after {
-  content: "♡";
-  right: 5%;
-  bottom: 9%;
-  font-size: 125px;
-  transform: rotate(16deg);
-}
+    .music-toggle {
+      position: fixed;
+      z-index: 20;
+      top: 16px;
+      right: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(189, 99, 126, 0.22);
+      border-radius: 999px;
+      padding: 10px 14px;
+      color: var(--rose-dark);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 5px 20px rgba(128, 69, 91, 0.08);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      transition: transform 0.2s, background 0.2s;
+    }
 
-.card {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 480px;
-  padding: 22px;
-  border: 1px solid rgba(255,255,255,.9);
-  border-radius: 30px;
-  background: rgba(255,255,255,.87);
-  box-shadow: 0 22px 75px rgba(119,56,82,.12);
-  text-align: center;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  animation: appear .45s ease both;
-}
+    .music-toggle:hover {
+      transform: translateY(-2px);
+      background: white;
+    }
 
-section {
-  width: 100%;
-}
+    .music-toggle:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 3px solid rgba(189, 99, 126, 0.3);
+      outline-offset: 3px;
+    }
 
-.eyebrow {
-  display: inline-block;
-  margin: 2px 0 12px;
-  padding: 7px 13px;
-  border: 1px solid #f4dce6;
-  border-radius: 30px;
-  background: #fff5f8;
-  color: var(--rose-dark);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
+    .app {
+      width: 100%;
+      max-width: 570px;
+      margin: auto;
+    }
 
-.romantic-picture {
-  display: block;
-  width: 100%;
-  height: 220px;
-  margin: 0 0 23px;
-  border-radius: 22px;
-  object-fit: cover;
-  object-position: center;
-  background: #f9e5ed;
-  box-shadow: 0 8px 24px rgba(112,56,79,.08);
-}
+    .card {
+      overflow: hidden;
+      border: 1px solid rgba(189, 99, 126, 0.12);
+      border-radius: 27px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
+      animation: appear 0.4s ease both;
+    }
 
-.heart {
-  margin: 5px 0 8px;
-  font-size: 38px;
-  line-height: 1.35;
-  animation: heartbeat 2.8s ease-in-out infinite;
-}
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(9px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-h1 {
-  margin: 8px 0 12px;
-  color: #7c3d57;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(29px, 7vw, 37px);
-  font-weight: 600;
-  line-height: 1.24;
-  letter-spacing: -.5px;
-}
+    .hero-image {
+      position: relative;
+      width: 100%;
+      height: 245px;
+      overflow: hidden;
+      background: #f4dfe5;
+    }
 
-h2 {
-  margin: 18px 0;
-  color: #9a4c6b;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(21px, 5vw, 25px);
-  font-weight: 500;
-  line-height: 1.45;
-}
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
 
-p {
-  margin: 10px 0 17px;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.85;
-}
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 45% 0 0;
+      background: linear-gradient(transparent, rgba(66, 30, 43, 0.22));
+      pointer-events: none;
+    }
 
-label {
-  display: block;
-  margin: 20px 0 8px;
-  color: #774c5e;
-  font-size: 13px;
-  font-weight: 700;
-  text-align: left;
-}
+    .image-caption {
+      position: absolute;
+      z-index: 1;
+      left: 20px;
+      bottom: 15px;
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+    }
 
-input,
-button {
-  width: 100%;
-  min-height: 52px;
-  margin-top: 12px;
-  padding: 14px 16px;
-  border-radius: 15px;
-  font-family: 'DM Sans', Arial, sans-serif;
-  font-size: 14px;
-}
+    .content {
+      padding: 29px 30px 30px;
+      text-align: center;
+    }
 
-input {
-  border: 1px solid #ead5df;
-  background: #fffdfd;
-  color: #563544;
-  outline: none;
-  transition: border-color .2s, box-shadow .2s;
-}
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--rose);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
 
-input:focus {
-  border-color: #cf7897;
-  box-shadow: 0 0 0 4px rgba(217,105,139,.10);
-}
+    h1, h2 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      line-height: 1.22;
+      letter-spacing: -0.5px;
+    }
 
-input[type="date"],
-input[type="time"] {
-  min-height: 54px;
-  color-scheme: light;
-}
+    h1 {
+      font-size: clamp(31px, 7vw, 43px);
+    }
 
-button {
-  border: 1px solid transparent;
-  background: linear-gradient(135deg, #d97899, #b94e76);
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 7px 17px rgba(189,82,120,.15);
-  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-}
+    h2 {
+      font-size: clamp(26px, 6vw, 34px);
+    }
 
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 23px rgba(189,82,120,.21);
-}
+    .subtitle {
+      max-width: 410px;
+      margin: 15px auto 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.85;
+    }
 
-button:active {
-  transform: scale(.985);
-}
+    .heart-divider {
+      margin: 19px 0;
+      color: #d89aaa;
+      font-size: 19px;
+      letter-spacing: 8px;
+    }
 
-button:focus-visible {
-  outline: 3px solid #e6a2b9;
-  outline-offset: 3px;
-}
+    .primary,
+    .secondary {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 13px 24px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
 
-button.secondary {
-  border-color: #efd9e3;
-  background: #fff5f8;
-  color: #92516b;
-  box-shadow: none;
-}
+    .primary {
+      border: 1px solid var(--rose);
+      color: white;
+      background: linear-gradient(135deg, #cc7890, #b55d78);
+      box-shadow: 0 8px 20px rgba(181, 93, 120, 0.2);
+    }
 
-button.secondary:hover {
-  background: #ffeaf1;
-  box-shadow: 0 5px 14px rgba(189,82,120,.08);
-}
+    .primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 11px 24px rgba(181, 93, 120, 0.25);
+    }
 
-button.back-button {
-  border-color: transparent;
-  background: transparent;
-  color: #9b7181;
-  box-shadow: none;
-  font-weight: 600;
-}
+    .secondary {
+      border: 1px solid #ead4db;
+      color: var(--rose-dark);
+      background: white;
+    }
 
-button.back-button:hover {
-  background: #fff5f8;
-  box-shadow: none;
-}
+    .secondary:hover {
+      background: #fff7f9;
+      transform: translateY(-1px);
+    }
 
-.choice-button {
-  min-height: 57px;
-  text-align: center;
-}
+    .actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
 
-.hidden {
-  display: none !important;
-}
+    .progress-wrap {
+      padding: 17px 30px 0;
+    }
 
-.small {
-  font-size: 12px;
-  color: #a18a95;
-}
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 9px;
+      color: #a78b94;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
 
-#summary {
-  margin-top: 18px;
-  padding: 19px;
-  border: 1px solid #f4e0e8;
-  border-radius: 19px;
-  background: linear-gradient(145deg, #fff5f8, #fffafd);
-  color: #785063;
-  text-align: left;
-  overflow-wrap: anywhere;
-  line-height: 1.7;
-  font-size: 14px;
-}
+    .progress-track {
+      height: 4px;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #f5e8ec;
+    }
 
-.message-text {
-  margin: 19px 0;
-  padding: 22px 19px;
-  border: 1px solid #f4dfe8;
-  border-radius: 21px;
-  background: linear-gradient(145deg, #fff2f6, #fffafd);
-  color: #80445b;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 18px;
-  line-height: 1.85;
-  overflow-wrap: anywhere;
-}
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #d9a0b0, #b75f7b);
+      transition: width 0.35s ease;
+    }
 
-#musicButton {
-  position: fixed;
-  right: 17px;
-  bottom: 17px;
-  z-index: 9999;
-  width: auto;
-  min-height: 46px;
-  margin: 0;
-  padding: 12px 18px;
-  border: 1px solid rgba(241,211,224,.9);
-  border-radius: 30px;
-  background: rgba(255,247,250,.96);
-  color: #984767;
-  box-shadow: 0 5px 20px rgba(89,42,63,.12);
-  font-size: 12px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
+    .step-image {
+      width: 100%;
+      height: 190px;
+      display: block;
+      margin: 22px 0 0;
+      object-fit: cover;
+      border-radius: 16px;
+      background: #f8e6eb;
+    }
 
-#musicButton:hover {
-  background: #fff;
-  box-shadow: 0 8px 22px rgba(89,42,63,.17);
-}
+    .field-label {
+      display: block;
+      margin: 22px 0 9px;
+      color: var(--rose-dark);
+      font-size: 12px;
+      font-weight: 700;
+      text-align: left;
+    }
 
-.footer-note {
-  margin-top: 20px;
-  color: #b18b9b;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 13px;
-  font-style: italic;
-}
+    .field {
+      width: 100%;
+      min-height: 49px;
+      border: 1px solid #ead6dd;
+      border-radius: 13px;
+      padding: 13px 15px;
+      color: var(--ink);
+      background: #fffafb;
+      outline: none;
+    }
 
-@keyframes appear {
-  from {
-    opacity: 0;
-    transform: translateY(9px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    .field:focus {
+      border-color: #c77a92;
+      box-shadow: 0 0 0 3px rgba(199, 122, 146, 0.12);
+    }
 
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.07); }
-}
+    .options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 23px;
+      text-align: left;
+    }
 
-@media (max-width: 480px) {
-  body {
-    padding: 20px 12px 82px;
-  }
+    .option {
+      min-width: 0;
+      min-height: 94px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid #eedce2;
+      border-radius: 16px;
+      padding: 15px;
+      color: var(--ink);
+      background: #fffafb;
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
 
-  .card {
-    padding: 17px;
-    border-radius: 25px;
-  }
+    .option:hover {
+      transform: translateY(-2px);
+      border-color: #dba7b7;
+    }
 
-  .romantic-picture {
-    height: 190px;
-    border-radius: 19px;
-    margin-bottom: 20px;
-  }
+    .option.selected {
+      border-color: #c66e88;
+      background: #fff0f4;
+      box-shadow: inset 0 0 0 1px rgba(198, 110, 136, 0.15);
+    }
 
-  .message-text {
-    padding: 19px 15px;
-    font-size: 17px;
-  }
+    .option-icon {
+      width: 39px;
+      height: 39px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: #f9e7ec;
+      font-size: 20px;
+    }
 
-  body::before {
-    font-size: 65px;
-  }
+    .option-title {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
 
-  body::after {
-    font-size: 80px;
-  }
-}
+    .option-description {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.5;
+    }
 
-@media (max-width: 350px) {
-  .card {
-    padding: 14px;
-  }
+    .message-mark {
+      width: 66px;
+      height: 66px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 19px;
+      border: 1px solid #f1d7df;
+      border-radius: 50%;
+      background: #fff2f5;
+      font-size: 30px;
+    }
 
-  .romantic-picture {
-    height: 155px;
-  }
+    .message-copy {
+      max-width: 400px;
+      margin: 17px auto 0;
+      color: #846974;
+      font-size: 15px;
+      line-height: 1.9;
+    }
 
-  h1 {
-    font-size: 28px;
-  }
+    .summary {
+      display: grid;
+      gap: 0;
+      margin-top: 24px;
+      border: 1px solid #f0dfe5;
+      border-radius: 16px;
+      overflow: hidden;
+      text-align: left;
+    }
 
-  #musicButton {
-    right: 10px;
-    bottom: 10px;
-  }
-}
+    .summary-row {
+      display: grid;
+      grid-template-columns: 115px minmax(0, 1fr);
+      gap: 12px;
+      padding: 14px 16px;
+      border-bottom: 1px solid #f3e7eb;
+      background: #fffafb;
+    }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
-  }
-}
-</style>
+    .summary-row:last-child {
+      border-bottom: 0;
+    }
+
+    .summary-label {
+      color: #a0808b;
+      font-size: 12px;
+    }
+
+    .summary-value {
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .error {
+      display: none;
+      margin-top: 12px;
+      color: #a43f5d;
+      font-size: 12px;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .error.visible {
+      display: block;
+    }
+
+    .tiny-note {
+      margin-top: 17px;
+      color: #aa929a;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .footer-note {
+      padding: 17px 10px 0;
+      color: #a88d96;
+      font-family: "Playfair Display", serif;
+      font-size: 14px;
+      font-style: italic;
+      text-align: center;
+    }
+
+    @media (max-width: 460px) {
+      body {
+        padding: 68px 11px 25px;
+      }
+
+      .music-toggle {
+        top: 12px;
+        right: 12px;
+      }
+
+      .card {
+        border-radius: 22px;
+      }
+
+      .hero-image {
+        height: 205px;
+      }
+
+      .content {
+        padding: 25px 19px 24px;
+      }
+
+      .progress-wrap {
+        padding: 16px 20px 0;
+      }
+
+      .step-image {
+        height: 165px;
+      }
+
+      .option {
+        gap: 9px;
+        padding: 12px 10px;
+      }
+
+      .option-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+      }
+
+      .summary-row {
+        grid-template-columns: 95px minmax(0, 1fr);
+        padding: 13px 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-<main class="card">
-
-  <!-- WELCOME -->
-  <section id="welcome">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1000&q=85"
-      alt="Romantic pink hearts and soft lights">
-
-    <div class="eyebrow">A little something for you</div>
-    <div class="heart">💌</div>
-    <h1>Hey, Heer! ❤️</h1>
-    <p>I have a little question for you, and I hope it puts the sweetest smile on your face.</p>
-    <h2>Would you like to meet me? ❤️💕</h2>
-
-    <button onclick="acceptInvitation()">Yes, let's meet! 💕</button>
-    <button class="secondary" onclick="declineInvitation()">Not right now</button>
-
-    <div class="footer-note">Made with a little extra love, just for you ♡</div>
-  </section>
-
-  <!-- DECLINED -->
-  <section id="declined" class="hidden">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1000&q=85"
-      alt="Soft romantic hearts">
-
-    <div class="heart">🥺💔</div>
-    <h1>Oh, Heer...</h1>
-    <div class="message-text">
-      A little part of my heart feels sad, because I was hoping to see you.
-      But your choice matters to me, and I respect it. Maybe another time. ❤️
-    </div>
-    <p>Sending you a little sad heart anyway. 🥺💔</p>
-    <button class="secondary" onclick="showStep('welcome')">Go back</button>
-  </section>
-
-  <!-- DATE -->
-  <section id="dateStep" class="hidden">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1000&q=85"
-      alt="Romantic red roses">
-
-    <div class="eyebrow">First, let's make a plan</div>
-    <div class="heart">🌹</div>
-    <h1>Let's pick a date</h1>
-    <p>Any day with you could become one of my favourite memories. ❤️</p>
-
-    <label for="date">Which day should we save for us?</label>
-    <input id="date" type="date" min="2026-10-19" required>
-
-    <button onclick="nextDate()">Next →</button>
-    <button class="back-button" onclick="showStep('welcome')">← Back</button>
-  </section>
-
-  <!-- TIME -->
-  <section id="timeStep" class="hidden">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1000&q=85"
-      alt="Warm golden evening light">
-
-    <div class="eyebrow">The perfect moment</div>
-    <div class="heart">🕰️</div>
-    <h1>Now, what time?</h1>
-    <p>Tell me when I should come and see that beautiful smile of yours, Heer. 💗</p>
-
-    <label for="time">What time works for you?</label>
-    <input id="time" type="time" required>
-
-    <button onclick="nextTime()">Next →</button>
-    <button class="back-button" onclick="showStep('dateStep')">← Back</button>
-  </section>
-
-  <!-- OUTFIT -->
-  <section id="colorStep" class="hidden">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1000&q=85"
-      alt="Elegant men's suit and formal outfit">
-
-    <div class="eyebrow">Help me get ready</div>
-    <div class="heart">🤵🏻</div>
-    <h1>Choose my outfit</h1>
-    <p>I want to look extra good when I meet you. Which colour would you like me to wear? ❤️</p>
-
-    <label for="outfitColor">Your chosen colour</label>
-    <input id="outfitColor" type="text" maxlength="80"
-      placeholder="Black, white, blue... anything you like">
-
-    <button onclick="nextColor()">Next →</button>
-    <button class="back-button" onclick="showStep('timeStep')">← Back</button>
-  </section>
-
-  <!-- LOCATION -->
-  <section id="placeStep" class="hidden">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85"
-      alt="Warm, intimate dining and meeting space">
-
-    <div class="eyebrow">Your choice matters</div>
-    <div class="heart">📍</div>
-    <h1>Where shall we meet?</h1>
-    <p>Somewhere comfortable, somewhere special, or somewhere completely unexpected. You choose, Heer. 🥰</p>
-
-    <button class="choice-button" onclick="chooseLocation('At home')">
-      At home 🏡
-    </button>
-
-    <button class="choice-button" onclick="chooseLocation('Outside')">
-      Somewhere outside 🌆
-    </button>
-
-    <div id="outsideField" class="hidden">
-      <label for="customPlace">Where would you like to go?</label>
-      <input id="customPlace" type="text" maxlength="150"
-        placeholder="A café, restaurant, or somewhere special">
-
-      <button onclick="confirmOutside()">Next →</button>
-    </div>
-
-    <button class="back-button" onclick="showStep('colorStep')">← Back</button>
-  </section>
-
-  <!-- FOOD -->
-  <section id="foodStep" class="hidden">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=85"
-      alt="Beautifully presented food at a restaurant">
-
-    <div class="eyebrow">One last little question</div>
-    <div class="heart">🍰</div>
-    <h1>What would you like to eat?</h1>
-    <p>Heer, tell me what you're craving. And don't be shy about it! ❤️😋</p>
-
-    <button class="choice-button" onclick="chooseFoodAbdul()">Abdul ❤️😘</button>
-    <button class="choice-button" onclick="showFoodField()">Something delicious 🍰</button>
-
-    <div id="foodField" class="hidden">
-      <label for="foodName">What would you like to eat?</label>
-      <input id="foodName" type="text" maxlength="150"
-        placeholder="Pizza, biryani, dessert...">
-
-      <button onclick="chooseFoodDish()">Next →</button>
-    </div>
-
-    <button class="back-button" onclick="showStep('placeStep')">← Back</button>
-  </section>
-
-  <!-- ROMANTIC MESSAGE -->
-  <section id="messageStep" class="hidden">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1000&q=85"
-      alt="Romantic hearts and soft pink lights">
-
-    <div class="heart" id="messageEmoji">💕</div>
-    <h1 id="messageTitle">Just for you, Heer</h1>
-
-    <div class="message-text" id="messageText"></div>
-
-    <button onclick="continueAfterMessage()">Next →</button>
-    <button class="back-button" onclick="goBackFromMessage()">← Back</button>
-  </section>
-
-  <!-- FINAL PLAN -->
-  <section id="finalStep" class="hidden">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1000&q=85"
-      alt="Romantic hearts for a special occasion">
-
-    <div class="eyebrow">A little date, just for us</div>
-    <div class="heart">😘💋</div>
-    <h1>It's a plan, Heer! ❤️</h1>
-
-    <div class="message-text">
-      I can't wait to see you, Heer. 🥰💕
-      I'm already imagining your smile, our little conversations,
-      and the beautiful memory we'll make together.
-      Until then, consider this a little kiss saved just for you. 😘💋❤️
-    </div>
-
-    <p>Here's our little plan, exactly how you chose it. 💌</p>
-
-    <div id="summary"></div>
-
-    <p id="saveStatus" class="small">
-      Preparing to save your lovely little plan...
-    </p>
-
-    <button class="secondary" onclick="restartInvitation()">Start again ♡</button>
-  </section>
-
-</main>
-
-<!-- The music is controlled ONLY by this button.
-     No autoplay and no page-wide click-to-play listener. -->
-<audio id="romanticMusic" loop preload="none">
-  <source src="./alexgrohl-romantic-piano-546204.mp3" type="audio/mpeg">
-</audio>
-
-<button id="musicButton" type="button" aria-pressed="false">
-  ♡ Play our song
-</button>
-
-<script>
-const steps = [
-  'welcome',
-  'declined',
-  'dateStep',
-  'timeStep',
-  'colorStep',
-  'placeStep',
-  'foodStep',
-  'messageStep',
-  'finalStep'
-];
-
-let outfitColor = '';
-let meetingLocation = '';
-let customPlace = '';
-let foodChoice = '';
-let nextAfterMessage = '';
-let messageBackStep = 'welcome';
-let submissionStarted = false;
-
-const answers = {
-  answer: 'Yes',
-  date: '',
-  time: '',
-  color: '',
-  location: '',
-  customPlace: '',
-  food: ''
-};
-
-function showStep(id) {
-  steps.forEach(step => {
-    document.getElementById(step).classList.toggle('hidden', step !== id);
-  });
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function showMessage(
-  message,
-  nextStep,
-  emoji = '💕',
-  title = 'Just for you, Heer',
-  backStep = 'welcome'
-) {
-  document.getElementById('messageText').textContent = message;
-  document.getElementById('messageEmoji').textContent = emoji;
-  document.getElementById('messageTitle').textContent = title;
-
-  nextAfterMessage = nextStep;
-  messageBackStep = backStep;
-
-  showStep('messageStep');
-}
-
-function continueAfterMessage() {
-  if (nextAfterMessage === 'submit') {
-    finish();
-  } else {
-    showStep(nextAfterMessage);
-  }
-}
-
-function goBackFromMessage() {
-  showStep(messageBackStep);
-}
-
-function acceptInvitation() {
-  showMessage(
-    "You just made me smile! 🥰💕 I've been wanting to spend some time with you too, Heer. Just the thought of seeing you, sharing a few laughs, and making a beautiful little memory together makes me happy. I can't wait to see you. ♡",
-    'dateStep',
-    '🥰❤️',
-    'You made me smile!',
-    'welcome'
-  );
-}
-
-function declineInvitation() {
-  showStep('declined');
-}
-
-document.getElementById('date').min = '2026-10-19';
-
-function nextDate() {
-  const date = document.getElementById('date').value;
-
-  if (!date || date < '2026-10-19') {
-    alert('Please choose a date from 19 October 2026 onward. ❤️');
-    return;
-  }
-
-  answers.date = date;
-
-  showMessage(
-    'A date is just a date, but spending it with you could make it unforgettable, Heer. ❤️',
-    'timeStep',
-    '🌹',
-    'A day to remember',
-    'dateStep'
-  );
-}
-
-function nextTime() {
-  const time = document.getElementById('time').value;
-
-  if (!time) {
-    alert('Please choose a time first, Heer. 😊');
-    return;
-  }
-
-  answers.time = time;
-
-  showMessage(
-    "Whatever time you choose, I'll be looking forward to every moment with you. ❤️",
-    'colorStep',
-    '⏰💕',
-    'A moment just for us',
-    'timeStep'
-  );
-}
-
-function nextColor() {
-  const color = document.getElementById('outfitColor').value.trim();
-
-  if (!color) {
-    alert('Please write an outfit colour. 💗');
-    document.getElementById('outfitColor').focus();
-    return;
-  }
-
-  outfitColor = color;
-  answers.color = color;
-
-  showMessage(
-    "It doesn't matter what colour I wear, Heer. ❤️ I only feel truly handsome when you're beside me, because your presence is the light that makes me shine. If I could keep your loving shadow beside me for a lifetime, I'd never want to stand in any other light. With you near me, I would always feel like the most handsome man in the world. 🥰💕",
-    'placeStep',
-    '🎀❤️',
-    'You make me shine',
-    'colorStep'
-  );
-}
-
-function chooseLocation(location) {
-  meetingLocation = location;
-  answers.location = location;
-
-  if (location === 'At home') {
-    customPlace = '';
-    answers.customPlace = '';
-    document.getElementById('customPlace').value = '';
-    document.getElementById('outsideField').classList.add('hidden');
-
-    showMessage(
-      'Thank you for understanding, Heer. ❤️ Sometimes the simplest moments, in a comfortable place with you, can become the sweetest memories. 💕',
-      'foodStep',
-      '🏡❤️',
-      'A cosy little plan',
-      'placeStep'
-    );
-
-    return;
-  }
-
-  document.getElementById('outsideField').classList.remove('hidden');
-  document.getElementById('customPlace').focus();
-}
-
-function confirmOutside() {
-  customPlace = document.getElementById('customPlace').value.trim();
-
-  if (!customPlace) {
-    alert('Please write the place you have in mind. ❤️');
-    document.getElementById('customPlace').focus();
-    return;
-  }
-
-  answers.location = 'Outside';
-  answers.customPlace = customPlace;
-
-  showMessage(
-    "It might be a little difficult, Heer, but for you I'll still try to make it happen. ❤️ Seeing you would make the effort worthwhile, and I'd be happy just to spend that time with you. 🥰💕",
-    'foodStep',
-    '🌆❤️',
-    "For you, I'll try",
-    'placeStep'
-  );
-}
-
-function showFoodField() {
-  foodChoice = '';
-  document.getElementById('foodField').classList.remove('hidden');
-  document.getElementById('foodName').focus();
-}
-
-function chooseFoodAbdul() {
-  foodChoice = 'Abdul';
-  answers.food = 'Abdul';
-
-  showMessage(
-    "Hmm… Abdul also wants to eat you, Heer! 😘❤️ You're sweeter than anything on the menu. Maybe I'll settle for a little kiss instead. 💋💕",
-    'submit',
-    '😘❤️',
-    'Abdul has an answer!',
-    'foodStep'
-  );
-}
-
-function chooseFoodDish() {
-  const dish = document.getElementById('foodName').value.trim();
-
-  if (!dish) {
-    alert('Please write the name of the food you want. 🍰');
-    document.getElementById('foodName').focus();
-    return;
-  }
-
-  foodChoice = dish;
-  answers.food = dish;
-
-  showMessage(
-    'Hmm, you can enjoy the ' + dish + ', Heer… but I will still steal a kiss or two! 😘❤️ Make sure you save a little room for dessert. 💋💕',
-    'submit',
-    '🍰😘',
-    'Your food choice',
-    'foodStep'
-  );
-}
-
-function finish() {
-  if (submissionStarted) return;
-
-  const date = document.getElementById('date').value;
-  const time = document.getElementById('time').value;
-  const color = document.getElementById('outfitColor').value.trim();
-
-  if (
-    !date ||
-    date < '2026-10-19' ||
-    !time ||
-    !color ||
-    !meetingLocation ||
-    !answers.food
-  ) {
-    alert('Please complete all the choices first. ❤️');
-    return;
-  }
-
-  answers.date = date;
-  answers.time = time;
-  answers.color = color;
-  answers.location = meetingLocation;
-  answers.customPlace = meetingLocation === 'Outside' ? customPlace : '';
-  answers.food = foodChoice;
-
-  const placeText = meetingLocation === 'Outside'
-    ? customPlace
-    : 'At home';
-
-  document.getElementById('summary').innerHTML =
-    '<strong>📅 Date:</strong> ' + escapeHTML(date) + '<br><br>' +
-    '<strong>⏰ Time:</strong> ' + escapeHTML(time) + '<br><br>' +
-    '<strong>👔 My outfit:</strong> ' + escapeHTML(color) + '<br><br>' +
-    '<strong>📍 Location:</strong> ' + escapeHTML(placeText) + '<br><br>' +
-    '<strong>🍰 Food choice:</strong> ' + escapeHTML(answers.food);
-
-  showStep('finalStep');
-  submissionStarted = true;
-  submitAnswers();
-}
-
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, character => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;'
-  })[character]);
-}
-
-function submitAnswers() {
-  // ADD YOUR DEPLOYED GOOGLE APPS SCRIPT /exec URL BELOW.
-  const endpoint = '';
-
-  if (!endpoint.startsWith('https://script.google.com/')) {
-    document.getElementById('saveStatus').textContent =
-      'Your plan is ready! Add your Google Apps Script URL to enable saving. 💌';
-    return;
-  }
-
-  const frame = document.createElement('iframe');
-  frame.name = 'submissionFrame';
-  frame.style.display = 'none';
-  document.body.appendChild(frame);
-
-  const form = document.createElement('form');
-  form.method = 'POST';
-  form.action = endpoint;
-  form.target = 'submissionFrame';
-  form.style.display = 'none';
-
-  Object.entries(answers).forEach(([key, value]) => {
-    const input = document.createElement('input');
-    input.type = 'hidden';
-    input.name = key;
-    input.value = value;
-    form.appendChild(input);
-  });
-
-  document.body.appendChild(form);
-  form.submit();
-
-  // This confirms that the form was sent, not that Google Sheets
-  // has confirmed the saved row.
-  document.getElementById('saveStatus').textContent =
-    'Your plan has been sent to be saved. 💌';
-}
-
-function restartInvitation() {
-  submissionStarted = false;
-  outfitColor = '';
-  meetingLocation = '';
-  customPlace = '';
-  foodChoice = '';
-  nextAfterMessage = '';
-  messageBackStep = 'welcome';
-
-  Object.keys(answers).forEach(key => {
-    answers[key] = key === 'answer' ? 'Yes' : '';
-  });
-
-  document.getElementById('date').value = '';
-  document.getElementById('time').value = '';
-  document.getElementById('outfitColor').value = '';
-  document.getElementById('customPlace').value = '';
-  document.getElementById('foodName').value = '';
-
-  document.getElementById('outsideField').classList.add('hidden');
-  document.getElementById('foodField').classList.add('hidden');
-
-  document.getElementById('saveStatus').textContent =
-    'Preparing to save your lovely little plan...';
-
-  showStep('welcome');
-}
-
-/* MUSIC CONTROLS
-   Playback can start ONLY when the music button is clicked.
-   There is no autoplay, document click listener, or automatic playback.
-*/
-(() => {
-  const music = document.getElementById('romanticMusic');
-  const button = document.getElementById('musicButton');
-
-  button.addEventListener('click', async () => {
-    if (music.paused) {
-      try {
-        await music.play();
-        button.textContent = '♫ Pause our song';
-        button.setAttribute('aria-pressed', 'true');
-      } catch (error) {
-        button.textContent = '♡ Song unavailable — check MP3';
-        button.setAttribute('aria-pressed', 'false');
-        console.error('Music playback failed:', error);
+  <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false">
+    <span id="musicIcon">♫</span>
+    <span id="musicLabel">Play our song</span>
+  </button>
+
+  <audio id="backgroundMusic" loop preload="none">
+    <source src="./alexgrohl-romantic-piano-546204.mp3" type="audio/mpeg">
+  </audio>
+
+  <main class="app">
+    <!-- Welcome -->
+    <section class="card screen" id="screen-welcome">
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1200&q=85" alt="Soft pink roses">
+        <span class="image-caption">Something a little special ♡</span>
+      </div>
+      <div class="content">
+        <p class="eyebrow">A little note for you</p>
+        <h1>Heer, may I plan<br>something lovely for us?</h1>
+        <p class="subtitle">
+          Nothing extravagant, just a little time together,
+          a few thoughtful details, and the chance to make
+          a sweet memory with you.
+        </p>
+        <div class="heart-divider">♡ · ♡ · ♡</div>
+        <div class="actions">
+          <button class="primary" type="button" onclick="startInvitation()">
+            I'd love that ♡
+          </button>
+          <button class="secondary" type="button" onclick="showScreen('screen-declined')">
+            Maybe another time
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Declined -->
+    <section class="card screen hidden" id="screen-declined">
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=85" alt="Delicate flowers">
+      </div>
+      <div class="content">
+        <p class="eyebrow">Always at your pace</p>
+        <h2>That's okay, Heer ♡</h2>
+        <p class="subtitle">
+          No pressure at all. The loveliest plans are the ones
+          that feel right to both of us. Whenever you feel like it,
+          we can plan something together.
+        </p>
+        <div class="actions">
+          <button class="secondary" type="button" onclick="showScreen('screen-welcome')">
+            Go back
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="card screen hidden" id="screen-intro">
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=85" alt="A couple sharing a romantic moment">
+        <span class="image-caption">Just you and me ♡</span>
+      </div>
+      <div class="content">
+        <p class="eyebrow">A little plan, made with love</p>
+        <h2>Let’s make a day<br>that feels like us.</h2>
+        <p class="subtitle">
+          Heer, I want our time together to feel warm, easy,
+          and special in all the little ways. So you get a say
+          in every detail — the day, the mood, what Abdul wears,
+          and the food we share.
+        </p>
+        <p class="subtitle">
+          Ready, my favourite person? ♡
+        </p>
+        <div class="actions">
+          <button class="primary" type="button" onclick="showScreen('screen-date')">
+            Let's plan our day
+          </button>
+          <button class="secondary" type="button" onclick="showScreen('screen-welcome')">
+            Back
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Date -->
+    <section class="card screen hidden" id="screen-date">
+      <div class="progress-wrap">
+        <div class="progress-top"><span>Our little plan</span><span>Step 1 of 5</span></div>
+        <div class="progress-track"><div class="progress-bar" style="width:20%"></div></div>
+      </div>
+      <div class="content">
+        <img class="step-image" src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1000&q=85" alt="A couple enjoying a romantic moment">
+        <p class="eyebrow" style="margin-top:23px">First things first</p>
+        <h2>Which day shall<br>be ours, Heer? ♡</h2>
+        <p class="subtitle">
+          Pick a day that feels good for you. I’m already looking
+          forward to having a little time just for us.
+        </p>
+
+        <label class="field-label" for="dateInput">Our date</label>
+        <input class="field" type="date" id="dateInput" min="2026-10-19">
+
+        <p class="error" id="dateError">Choose a date from 19 October 2026 onwards, my love. ♡</p>
+        <div class="actions">
+          <button class="secondary" type="button" onclick="showScreen('screen-intro')">Back</button>
+          <button class="primary" type="button" onclick="saveDate()">This day it is ♡</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Time -->
+    <section class="card screen hidden" id="screen-time">
+      <div class="progress-wrap">
+        <div class="progress-top"><span>Our little plan</span><span>Step 2 of 5</span></div>
+        <div class="progress-track"><div class="progress-bar" style="width:40%"></div></div>
+      </div>
+      <div class="content">
+        <img class="step-image" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1000&q=85" alt="Warm golden evening light">
+        <p class="eyebrow" style="margin-top:23px">A moment just for us</p>
+        <h2>What time feels<br>perfect to you?</h2>
+        <p class="subtitle">
+          Whenever it is, I hope it comes with unhurried
+          conversations, smiles, and a little extra time together.
+        </p>
+
+        <div class="options" id="timeOptions">
+          <button class="option" type="button" onclick="selectChoice('time','4:00 PM',this)">
+            <span class="option-icon">🌷</span>
+            <span><span class="option-title">4:00 PM</span><span class="option-description">A lovely afternoon</span></span>
+          </button>
+          <button class="option" type="button" onclick="selectChoice('time','6:00 PM',this)">
+            <span class="option-icon">🌅</span>
+            <span><span class="option-title">6:00 PM</span><span class="option-description">Golden-hour magic</span></span>
+          </button>
+          <button class="option" type="button" onclick="selectChoice('time','7:00 PM',this)">
+            <span class="option-icon">🕯️</span>
+            <span><span class="option-title">7:00 PM</span><span class="option-description">A cosy evening</span></span>
+          </button>
+          <button class="option" type="button" onclick="selectChoice('time','8:00 PM',this)">
+            <span class="option-icon">🌙</span>
+            <span><span class="option-title">8:00 PM</span><span class="option-description">A little night-time romance</span></span>
+          </button>
+        </div>
+
+        <p class="error" id="timeError">Choose the time that suits you best. ♡</p>
+        <div class="actions">
+          <button class="secondary" type="button" onclick="showScreen('screen-date')">Back</button>
+          <button class="primary" type="button" onclick="saveTime()">Perfect, next ♡</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outfit colour -->
+    <section class="card screen hidden" id="screen-color">
+      <div class="progress-wrap">
+        <div class="progress-top"><span>Our little plan</span><span>Step 3 of 5</span></div>
+        <div class="progress-track"><div class="progress-bar" style="width:60%"></div></div>
+      </div>
+      <div class="content">
+        <img class="step-image" src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1000&q=85" alt="A smart, elegant men's outfit">
+        <p class="eyebrow" style="margin-top:23px">Help me get ready</p>
+        <h2>What colour should<br>Abdul wear for you?</h2>
+        <p class="subtitle">
+          Your choice, your styling advice. Tell me which colour
+          you’d like to see me in. I’ll take your suggestion seriously. 🤭
+        </p>
+
+        <div class="options" id="colorOptions">
+          <button class="option" type="button" onclick="selectChoice('color','Navy blue',this)">
+            <span class="option-icon">💙</span>
+            <span><span class="option-title">Navy blue</span><span class="option-description">Classic and handsome</span></span>
+          </button>
+          <button class="option" type="button" onclick="selectChoice('color','Black',this)">
+            <span class="option-icon">🖤</span>
+            <span><span class="option-title">Black</span><span class="option-description">Simple and timeless</span></span>
+          </button>
+          <button class="option" type="button" onclick="selectChoice('color','White',this)">
+            <span class="option-icon">🤍</span>
+            <span><span class="option-title">White</span><span class="option-description">Fresh and elegant</span></span>
+          </button>
+          <button class="option" type="button" onclick="selectChoice('color','Beige',this)">
+            <span class="option-icon">🤎</span>
+            <span><span class="option-title">Beige</span><span class="option-description">Soft and understated</span></span>
+          </button>
+        </div>
+
+        <p class="error" id="colorError">Help Abdul choose a colour first. ♡</p>
+        <div class="actions">
+          <button class="secondary" type="button" onclick="showScreen('screen-time')">Back</button>
+          <button class="primary" type="button" onclick="saveColor()">I'll wear your choice ♡</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location -->
+    <section class="card screen hidden" id="screen-location">
+      <div class="progress-wrap">
+        <div class="progress-top"><span>Our little plan</span><span>Step 4 of 5</span></div>
+        <div class="progress-track"><div class="progress-bar" style="width:80%"></div></div>
+      </div>
+      <div class="content">
+        <img class="step-image" src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1000&q=85" alt="A beautiful city at dusk">
+        <p class="eyebrow" style="margin-top:23px">Where shall we make memories?</p>
+        <h2>What kind of date<br>sounds lovely, Heer?</h2>
+        <p class="subtitle">
+          A cosy little world of our own, or a chance to go out
+          together? Whichever you choose, being with you is the best part.
+        </p>
+
+        <div class="options" id="locationOptions">
+          <button class="option" type="button" onclick="selectChoice('location','At home',this)">
+            <span class="option-icon">🏡</span>
+            <span><span class="option-title">At home</span><span class="option-description">Cosy, calm, just us</span></span>
+          </button>
+          <button class="option" type="button" onclick="selectChoice('location','Go out',this)">
+            <span class="option-icon">🌆</span>
+            <span><span class="option-title">Go out</span><span class="option-description">Let's have a little adventure</span></span>
+          </button>
+        </div>
+
+        <p class="error" id="locationError">Choose the setting you like most. ♡</p>
+        <div class="actions">
+          <button class="secondary" type="button" onclick="showScreen('screen-color')">Back</button>
+          <button class="primary" type="button" onclick="saveLocation()">Sounds lovely ♡</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Going-out place -->
+    <section class="card screen hidden" id="screen-place">
+      <div class="progress-wrap">
+        <div class="progress-top"><span>One little detail</span><span>Almost there</span></div>
+        <div class="progress-track"><div class="progress-bar" style="width:88%"></div></div>
+      </div>
+      <div class="content">
+        <img class="step-image" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85" alt="A warmly lit restaurant">
+        <p class="eyebrow" style="margin-top:23px">You get to choose</p>
+        <h2>Where should<br>I take you, Heer? ♡</h2>
+        <p class="subtitle">
+          Tell me the place you have in mind — a restaurant,
+          a café, somewhere beautiful, or anywhere you’d love to visit.
+        </p>
+
+        <label class="field-label" for="placeInput">Our place</label>
+        <input class="field" id="placeInput" type="text" maxlength="180" placeholder="The place you'd love to go...">
+
+        <p class="error" id="placeError">Tell me where you'd like us to go, Heer. ♡</p>
+        <div class="actions">
+          <button class="secondary" type="button" onclick="showScreen('screen-location')">Back</button>
+          <button class="primary" type="button" onclick="savePlace()">That's the one ♡</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Food -->
+    <section class="card screen hidden" id="screen-food">
+      <div class="progress-wrap">
+        <div class="progress-top"><span>Our little plan</span><span>Final choice</span></div>
+        <div class="progress-track"><div class="progress-bar" style="width:94%"></div></div>
+      </div>
+      <div class="content">
+        <img class="step-image" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=85" alt="A beautiful dinner table">
+        <p class="eyebrow" style="margin-top:23px">Save a little room for love</p>
+        <h2>What would you like<br>to eat, Heer? ♡</h2>
+        <p class="subtitle">
+          There are two very important options to consider.
+          Please choose wisely. 🤭
+        </p>
+
+        <div class="options" id="foodOptions">
+          <button class="option" type="button" onclick="selectFood('Abdul',this)">
+            <span class="option-icon">🤭</span>
+            <span><span class="option-title">Abdul</span><span class="option-description">A cheeky little answer</span></span>
+          </button>
+          <button class="option" type="button" onclick="selectFood('Food',this)">
+            <span class="option-icon">🍽️</span>
+            <span><span class="option-title">Food</span><span class="option-description">Tell me what you're craving</span></span>
+          </button>
+        </div>
+
+        <div id="foodChoiceContainer" class="hidden">
+          <label class="field-label" for="foodInput">What would you like to eat?</label>
+          <input class="field" id="foodInput" type="text" maxlength="180" placeholder="Biryani, pasta, something sweet...">
+        </div>
+
+        <p class="error" id="foodError">Choose an option first, my love. ♡</p>
+        <div class="actions">
+          <button class="secondary" type="button" onclick="goBackFromFood()">Back</button>
+          <button class="primary" type="button" onclick="saveFood()">That's my choice ♡</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Personalized response page after every answer -->
+    <section class="card screen hidden" id="screen-response">
+      <div class="hero-image">
+        <img id="responseImage" src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1200&q=85" alt="Romantic flowers">
+        <span class="image-caption">A little thought for you ♡</span>
+      </div>
+      <div class="content">
+        <div class="message-mark" id="responseEmoji">♡</div>
+        <p class="eyebrow">Just for you, Heer</p>
+        <h2 id="responseTitle">That sounds lovely.</h2>
+        <p class="message-copy" id="responseMessage"></p>
+        <div class="heart-divider">♡ · ♡ · ♡</div>
+        <div class="actions">
+          <button class="secondary" type="button" onclick="goBackFromResponse()">Back</button>
+          <button class="primary" id="responseContinue" type="button" onclick="continueFromResponse()">
+            Let's continue ♡
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="card screen hidden" id="screen-summary">
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1200&q=85" alt="Pink roses for a special occasion">
+        <span class="image-caption">Our little plan ♡</span>
+      </div>
+      <div class="content">
+        <p class="eyebrow">A little something to look forward to</p>
+        <h2>Our little date plan ♡</h2>
+        <p class="subtitle">
+          Here's what we've planned together. The details are yours,
+          and the memory will be ours.
+        </p>
+
+        <div class="summary">
+          <div class="summary-row">
+            <span class="summary-label">Date</span>
+            <span class="summary-value" id="summaryDate">—</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Time</span>
+            <span class="summary-value" id="summaryTime">—</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Abdul's colour</span>
+            <span class="summary-value" id="summaryColor">—</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Our setting</span>
+            <span class="summary-value" id="summaryLocation">—</span>
+          </div>
+          <div class="summary-row hidden" id="summaryPlaceRow">
+            <span class="summary-label">Our place</span>
+            <span class="summary-value" id="summaryPlace">—</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Food</span>
+            <span class="summary-value" id="summaryFood">—</span>
+          </div>
+        </div>
+
+        <p class="subtitle">
+          One date, two people, and hopefully a memory we’ll both smile about. ♡
+        </p>
+
+        <p class="error" id="submitError"></p>
+        <div class="actions">
+          <button class="secondary" type="button" onclick="showScreen('screen-food')">Change a detail</button>
+          <button class="primary" id="confirmButton" type="button" onclick="confirmPlan()">
+            It's a date ♡
+          </button>
+        </div>
+        <p class="tiny-note">Made with care, just for you.</p>
+      </div>
+    </section>
+
+    <!-- Final confirmation -->
+    <section class="card screen hidden" id="screen-success">
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=85" alt="Soft flowers in warm light">
+        <span class="image-caption">Something beautiful to look forward to ♡</span>
+      </div>
+      <div class="content">
+        <div class="message-mark">💗</div>
+        <p class="eyebrow">It's a date</p>
+        <h2>Then it's settled,<br>my Heer. ♡</h2>
+        <p class="subtitle">
+          I’m looking forward to this — the little moments,
+          your smile, our conversations, and simply getting to
+          spend time with you.
+        </p>
+        <div class="heart-divider">♡ · ♡ · ♡</div>
+        <p class="message-copy" id="successFoodMessage"></p>
+        <p class="subtitle">Until then, keep a little smile saved for me. 🤍</p>
+        <div class="actions">
+          <button class="secondary" type="button" onclick="restartInvitation()">Start again</button>
+        </div>
+      </div>
+    </section>
+
+    <p class="footer-note">A little plan, with a lot of heart ♡</p>
+  </main>
+
+  <script>
+    /*
+      GOOGLE SHEETS SETUP:
+      Paste your deployed Google Apps Script Web App /exec URL below.
+      Leave it blank if you don't want to submit the plan to Google Sheets yet.
+    */
+    const endpoint = '';
+
+    const state = {
+      date: '',
+      time: '',
+      color: '',
+      location: '',
+      customPlace: '',
+      food: '',
+      foodChoice: ''
+    };
+
+    let responseNextScreen = '';
+    let responsePreviousScreen = '';
+    let currentScreen = 'screen-welcome';
+    let lastNonResponseScreen = 'screen-welcome';
+    let submitting = false;
+
+    const music = document.getElementById('backgroundMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    const musicIcon = document.getElementById('musicIcon');
+    const musicLabel = document.getElementById('musicLabel');
+
+    /*
+      Music only starts when the music button is clicked.
+      There are intentionally no autoplay, page-click, or keyboard playback triggers.
+    */
+    musicToggle.addEventListener('click', async function () {
+      if (music.paused) {
+        try {
+          await music.play();
+          musicToggle.setAttribute('aria-pressed', 'true');
+          musicIcon.textContent = '♫';
+          musicLabel.textContent = 'Pause our song';
+        } catch (error) {
+          musicLabel.textContent = 'Tap to play again';
+        }
+      } else {
+        music.pause();
+        musicToggle.setAttribute('aria-pressed', 'false');
+        musicIcon.textContent = '♫';
+        musicLabel.textContent = 'Play our song';
       }
-    } else {
-      music.pause();
-      button.textContent = '♡ Play our song';
-      button.setAttribute('aria-pressed', 'false');
+    });
+
+    music.addEventListener('ended', function () {
+      musicToggle.setAttribute('aria-pressed', 'false');
+      musicLabel.textContent = 'Play our song';
+    });
+    
+/* Music playback options:
+   1. Try autoplay when the page loads.
+   2. If autoplay is blocked, play on the first page click.
+   3. Keep the dedicated music button working too.
+*/
+
+async function startBackgroundMusic() {
+  if (!music.paused) return;
+
+  try {
+    await music.play();
+    musicToggle.setAttribute('aria-pressed', 'true');
+    musicIcon.textContent = '♫';
+    musicLabel.textContent = 'Pause our song';
+  } catch (error) {
+    // Browsers may block autoplay until the visitor interacts.
+  }
+}
+
+// Option 1: Try to autoplay when the page loads.
+window.addEventListener('load', function () {
+  startBackgroundMusic();
+});
+
+// Option 2: If autoplay is blocked, start music on the first page click.
+document.addEventListener('click', function startMusicOnFirstClick(event) {
+  if (event.target.closest('#musicToggle')) return;
+
+  startBackgroundMusic();
+  document.removeEventListener('click', startMusicOnFirstClick);
+});
+
+
+    function showScreen(screenId) {
+      document.querySelectorAll('.screen').forEach(function (screen) {
+        screen.classList.add('hidden');
+      });
+
+      const target = document.getElementById(screenId);
+      if (!target) return;
+
+      target.classList.remove('hidden');
+      currentScreen = screenId;
+
+      if (screenId !== 'screen-response') {
+        lastNonResponseScreen = screenId;
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  });
 
-  music.addEventListener('ended', () => {
-    button.textContent = '♡ Play our song';
-    button.setAttribute('aria-pressed', 'false');
-  });
+    function startInvitation() {
+      showScreen('screen-intro');
+    }
 
-  music.addEventListener('error', () => {
-    button.textContent = '♡ Song unavailable — check MP3';
-    button.setAttribute('aria-pressed', 'false');
-    console.error('Could not load the music file:', music.error);
-  });
-})();
-</script>
+    function showError(id, message) {
+      const element = document.getElementById(id);
+      if (!element) return;
 
+      if (message) element.textContent = message;
+      element.classList.add('visible');
+    }
+
+    function hideError(id) {
+      const element = document.getElementById(id);
+      if (element) element.classList.remove('visible');
+    }
+
+    function selectChoice(type, value, button) {
+      state[type] = value;
+
+      const parent = button.closest('.options');
+      if (parent) {
+        parent.querySelectorAll('.option').forEach(function (option) {
+          option.classList.remove('selected');
+        });
+      }
+
+      button.classList.add('selected');
+
+      const errorId = type + 'Error';
+      hideError(errorId);
+    }
+
+    function showResponse(options) {
+      responsePreviousScreen = currentScreen;
+      responseNextScreen = options.next;
+
+      document.getElementById('responseEmoji').textContent = options.emoji || '♡';
+      document.getElementById('responseTitle').textContent = options.title;
+      document.getElementById('responseMessage').textContent = options.message;
+      document.getElementById('responseImage').src = options.image;
+      document.getElementById('responseImage').alt = options.alt || 'A romantic moment';
+      document.getElementById('responseContinue').textContent =
+        options.buttonText || "Let's continue ♡";
+
+      showScreen('screen-response');
+    }
+
+    function continueFromResponse() {
+      if (responseNextScreen === 'screen-summary') {
+        populateSummary();
+      }
+      showScreen(responseNextScreen);
+    }
+
+    function goBackFromResponse() {
+      showScreen(responsePreviousScreen || lastNonResponseScreen);
+    }
+
+    function saveDate() {
+      const input = document.getElementById('dateInput');
+      const value = input.value;
+
+      if (!value || value < '2026-10-19') {
+        showError('dateError', 'Please choose a date from 19 October 2026 onwards. ♡');
+        return;
+      }
+
+      state.date = value;
+      hideError('dateError');
+
+      showResponse({
+        emoji: '🗓️',
+        title: 'A day to look forward to.',
+        message: 'I love that we have a day in mind now, Heer. I hope it becomes one of those little memories that makes us smile whenever we think about it.',
+        image: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=85',
+        alt: 'A couple sharing a romantic moment',
+        next: 'screen-time',
+        buttonText: 'Choose our time ♡'
+      });
+    }
+
+    function saveTime() {
+      if (!state.time) {
+        showError('timeError', 'Choose the time that suits you best. ♡');
+        return;
+      }
+
+      hideError('timeError');
+
+      showResponse({
+        emoji: '🌅',
+        title: 'That time sounds lovely.',
+        message: 'Now I can picture it a little better — us spending time together, forgetting to rush, and enjoying the moment. I’m glad you get to choose what feels right.',
+        image: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1200&q=85',
+        alt: 'Warm golden evening light',
+        next: 'screen-color',
+        buttonText: 'Pick my colour ♡'
+      });
+    }
+
+    function saveColor() {
+      if (!state.color) {
+        showError('colorError', 'Help Abdul choose a colour first. ♡');
+        return;
+      }
+
+      hideError('colorError');
+
+      showResponse({
+        emoji: '🤍',
+        title: 'Your wish is my dress code.',
+        message: 'Consider it decided, Heer. I’ll keep your choice in mind when I get ready — after all, if I’m dressing up for someone special, your opinion matters most. 🤭',
+        image: 'https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1200&q=85',
+        alt: 'A smart and elegant outfit',
+        next: 'screen-location',
+        buttonText: 'Choose our setting ♡'
+      });
+    }
+
+    function saveLocation() {
+      if (!state.location) {
+        showError('locationError', 'Choose the setting you like most. ♡');
+        return;
+      }
+
+      hideError('locationError');
+
+      if (state.location === 'At home') {
+        state.customPlace = '';
+
+        showResponse({
+          emoji: '🏡',
+          title: 'A cosy little world of our own.',
+          message: 'Honestly, that sounds so sweet. A comfortable place, something nice to eat, and time together without any rush. Sometimes the simplest plans become the loveliest memories.',
+          image: 'https://images.unsplash.com/photo-1449247709967-d4461a6a6103?auto=format&fit=crop&w=1200&q=85',
+          alt: 'A warm and cosy home',
+          next: 'screen-food',
+          buttonText: 'Now, the food ♡'
+        });
+      } else {
+        showResponse({
+          emoji: '🌆',
+          title: 'A little adventure together.',
+          message: 'I like the sound of that, Heer. Let’s find somewhere you’ll enjoy, make a little outing of it, and give ourselves something lovely to remember.',
+          image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85',
+          alt: 'A warmly lit restaurant',
+          next: 'screen-place',
+          buttonText: 'Choose our place ♡'
+        });
+      }
+    }
+
+    function savePlace() {
+      const input = document.getElementById('placeInput');
+      const value = input.value.trim();
+
+      if (!value) {
+        showError('placeError', "Tell me where you'd like us to go, Heer. ♡");
+        return;
+      }
+
+      state.customPlace = value;
+      hideError('placeError');
+
+      showResponse({
+        emoji: '📍',
+        title: 'Your place, our little memory.',
+        message: 'It’s on the plan, Heer. I’m looking forward to going there with you and enjoying the time we get to spend together. The place will be lovely — and the company even better. ♡',
+        image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85',
+        alt: 'A cosy restaurant',
+        next: 'screen-food',
+        buttonText: 'Choose our food ♡'
+      });
+    }
+
+    function selectFood(value, button) {
+      state.food = value;
+
+      document.querySelectorAll('#foodOptions .option').forEach(function (option) {
+        option.classList.remove('selected');
+      });
+      button.classList.add('selected');
+
+      const foodContainer = document.getElementById('foodChoiceContainer');
+      const foodInput = document.getElementById('foodInput');
+
+      if (value === 'Food') {
+        foodContainer.classList.remove('hidden');
+        foodInput.focus();
+      } else {
+        foodContainer.classList.add('hidden');
+        foodInput.value = '';
+        state.foodChoice = '';
+      }
+
+      hideError('foodError');
+    }
+
+    function goBackFromFood() {
+      if (state.location === 'Go out') {
+        showScreen('screen-place');
+      } else {
+        showScreen('screen-location');
+      }
+    }
+
+    function saveFood() {
+      if (!state.food) {
+        showError('foodError', 'Choose an option first, my love. ♡');
+        return;
+      }
+
+      if (state.food === 'Abdul') {
+        state.foodChoice = '';
+        hideError('foodError');
+
+        showResponse({
+          emoji: '🤭❤️',
+          title: 'Heer, you chose Abdul?',
+          message: 'Abdul also wants to eat you 🤭❤️ Okay, okay — I’ll behave! But you did say I could ask what you wanted, and I couldn’t resist that option.',
+          image: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1200&q=85',
+          alt: 'Romantic pink roses',
+          next: 'screen-summary',
+          buttonText: 'See our little plan ♡'
+        });
+        return;
+      }
+
+      const dish = document.getElementById('foodInput').value.trim();
+
+      if (!dish) {
+        showError('foodError', 'Tell me what you would love to eat, Heer. ♡');
+        return;
+      }
+
+      state.foodChoice = dish;
+      hideError('foodError');
+
+      showResponse({
+        emoji: '🍽️',
+        title: 'Something delicious, chosen by you.',
+        message: 'Now that sounds lovely! I’ll remember that you’re craving ' + dish + '. One more thing to look forward to — good food, good company, and a little time together. ♡',
+        image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=85',
+        alt: 'A beautifully prepared dinner',
+        next: 'screen-summary',
+        buttonText: 'See our little plan ♡'
+      });
+    }
+
+    function formatDate(dateString) {
+      if (!dateString) return '—';
+
+      const parts = dateString.split('-').map(Number);
+      const date = new Date(parts[0], parts[1] - 1, parts[2]);
+
+      return date.toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+    }
+
+    function populateSummary() {
+      document.getElementById('summaryDate').textContent = formatDate(state.date);
+      document.getElementById('summaryTime').textContent = state.time || '—';
+      document.getElementById('summaryColor').textContent = state.color || '—';
+      document.getElementById('summaryLocation').textContent = state.location || '—';
+
+      const placeRow = document.getElementById('summaryPlaceRow');
+
+      if (state.location === 'Go out') {
+        placeRow.classList.remove('hidden');
+        document.getElementById('summaryPlace').textContent =
+          state.customPlace || 'To be decided together';
+      } else {
+        placeRow.classList.add('hidden');
+        document.getElementById('summaryPlace').textContent = '';
+      }
+
+      document.getElementById('summaryFood').textContent =
+        state.food === 'Abdul'
+          ? 'Abdul 🤭❤️'
+          : (state.foodChoice || '—');
+
+      document.getElementById('successFoodMessage').textContent =
+        state.food === 'Abdul'
+          ? 'And about your food choice… Abdul has not forgotten what you picked. 🤭❤️'
+          : 'And yes, ' + state.foodChoice + ' is on my mind already. I hope it tastes even better when we share the moment. ♡';
+    }
+
+    async function confirmPlan() {
+      if (submitting) return;
+
+      hideError('submitError');
+
+      const button = document.getElementById('confirmButton');
+      button.disabled = true;
+      button.textContent = 'One little moment…';
+      submitting = true;
+
+      const payload = {
+        answer: 'Accepted',
+        date: state.date,
+        time: state.time,
+        color: state.color,
+        location: state.location,
+        customPlace: state.location === 'Go out' ? state.customPlace : '',
+        food: state.food,
+        foodChoice: state.foodChoice,
+        submittedAt: new Date().toISOString()
+      };
+
+      try {
+        if (endpoint && endpoint !== 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
+          await fetch(endpoint, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+              'Content-Type': 'text/plain;charset=utf-8'
+            },
+            body: JSON.stringify(payload)
+          });
+        }
+
+        showScreen('screen-success');
+      } catch (error) {
+        showError(
+          'submitError',
+          'Your plan is ready, Heer. There may have been a problem saving it online, but you can still continue. ♡'
+        );
+        showScreen('screen-summary');
+      } finally {
+        submitting = false;
+        button.disabled = false;
+        button.textContent = "It's a date ♡";
+      }
+    }
+
+    function restartInvitation() {
+      state.date = '';
+      state.time = '';
+      state.color = '';
+      state.location = '';
+      state.customPlace = '';
+      state.food = '';
+      state.foodChoice = '';
+
+      document.getElementById('dateInput').value = '';
+      document.getElementById('placeInput').value = '';
+      document.getElementById('foodInput').value = '';
+      document.getElementById('foodChoiceContainer').classList.add('hidden');
+
+      document.querySelectorAll('.option.selected').forEach(function (option) {
+        option.classList.remove('selected');
+      });
+
+      [
+        'dateError', 'timeError', 'colorError', 'locationError',
+        'placeError', 'foodError', 'submitError'
+      ].forEach(hideError);
+
+      showScreen('screen-welcome');
+    }
+  </script>
 </body>
 </html>
