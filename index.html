@@ -128,7 +128,7 @@ let outfitColor = '';
 function showStep(id) {
   steps.forEach(s => document.getElementById(s).classList.toggle('hidden', s !== id));
 }
-document.getElementById('date').min = new Date().toLocaleDateString('en-CA');
+document.getElementById('date').min = '2026-10-19';
 
 function nextDate() {
   if (!document.getElementById('date').value) {
