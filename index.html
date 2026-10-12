@@ -4,13 +4,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Little Invitation 💌</title>
+<title>A Little Invitation for Heer 💌</title>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -18,75 +17,76 @@ body {
   min-height: 100dvh;
   display: grid;
   place-items: center;
-  padding: 24px 16px;
+  padding: 24px 16px 85px;
   font-family: 'DM Sans', Arial, sans-serif;
   color: #563544;
   background:
-    radial-gradient(ellipse at 10% 15%, #ffe0e9 0, transparent 42%),
-    radial-gradient(ellipse at 90% 85%, #f6d6e8 0, transparent 42%),
-    linear-gradient(135deg, #fff8f5, #fceaf0, #fff3f4);
+    radial-gradient(ellipse at 15% 20%, #ffe0ec 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 80%, #f5dfff 0%, transparent 45%),
+    linear-gradient(135deg, #fff7fa, #ffeaf2, #f9efff);
+  background-attachment: fixed;
   overflow-x: hidden;
 }
 
-body::before,
-body::after {
+body::before {
+  content: "♡     ♥       ♡       ♥       ♡";
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: rgba(211,105,145,.22);
+  font-size: 25px;
+  letter-spacing: 20px;
+  white-space: nowrap;
   pointer-events: none;
   z-index: 0;
-  color: #e9a7bd;
-  opacity: .45;
-  font-size: 100px;
-  animation: float 6s ease-in-out infinite;
-}
-
-body::before {
-  content: "♡";
-  top: 7%;
-  left: 6%;
-}
-
-body::after {
-  content: "♡";
-  right: 7%;
-  bottom: 6%;
-  animation-delay: -3s;
+  animation: dreamyFloat 12s linear infinite;
 }
 
 .card {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 450px;
-  padding: 38px 28px;
-  background: rgba(255, 255, 255, .84);
-  border: 1px solid rgba(255, 255, 255, .95);
-  border-radius: 30px;
-  box-shadow: 0 24px 70px rgba(132, 66, 91, .13);
+  max-width: 460px;
+  padding: 25px 25px 30px;
+  background: rgba(255,255,255,.91);
+  border: 1px solid rgba(255,255,255,.95);
+  border-radius: 28px;
+  box-shadow: 0 24px 70px rgba(132,66,91,.15);
   text-align: center;
   backdrop-filter: blur(14px);
-  animation: appear .7s ease both;
+  animation: appear .5s ease both;
+}
+
+.romantic-picture {
+  width: 100%;
+  height: 185px;
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  background: #fce3ed;
 }
 
 .heart {
-  font-size: 48px;
-  margin-bottom: 14px;
+  font-size: 42px;
+  margin: 8px 0;
   animation: heartbeat 2.5s ease-in-out infinite;
 }
 
 h1 {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(29px, 7vw, 36px);
+  font-size: clamp(28px, 7vw, 36px);
   font-weight: 600;
-  letter-spacing: -.5px;
-  line-height: 1.2;
-  margin: 12px 0 16px;
+  line-height: 1.25;
+  margin: 12px 0;
   color: #783d55;
 }
 
 h2 {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 23px;
-  line-height: 1.4;
+  font-size: 22px;
+  line-height: 1.45;
   color: #87455f;
 }
 
@@ -96,9 +96,7 @@ p {
   color: #896b79;
 }
 
-button,
-select,
-input {
+button, input, select {
   width: 100%;
   margin-top: 14px;
   padding: 15px;
@@ -113,19 +111,16 @@ button {
   color: white;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 7px 18px rgba(189, 82, 120, .19);
-  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  box-shadow: 0 7px 18px rgba(189,82,120,.19);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(189, 82, 120, .25);
-  filter: brightness(1.03);
+  box-shadow: 0 10px 24px rgba(189,82,120,.25);
 }
 
-button:active {
-  transform: scale(.98);
-}
+button:active { transform: scale(.98); }
 
 button.secondary {
   background: #fff1f5;
@@ -134,11 +129,21 @@ button.secondary {
   border: 1px solid #f3dce5;
 }
 
-button:focus-visible,
-input:focus-visible,
-select:focus-visible {
+button:focus-visible, input:focus-visible {
   outline: 3px solid #e6a2b9;
   outline-offset: 3px;
+}
+
+input {
+  border: 1px solid #ead5de;
+  background: #fffdfd;
+  color: #563544;
+}
+
+input:focus {
+  border-color: #cf7897;
+  box-shadow: 0 0 0 4px rgba(217,105,139,.1);
+  outline: none;
 }
 
 label {
@@ -150,53 +155,7 @@ label {
   font-weight: 700;
 }
 
-input,
-select {
-  border: 1px solid #ead5de;
-  background: #fffdfd;
-  color: #563544;
-  outline: none;
-  transition: border-color .2s ease, box-shadow .2s ease;
-}
-
-input:focus,
-select:focus {
-  border-color: #cf7897;
-  box-shadow: 0 0 0 4px rgba(217, 105, 139, .1);
-}
-
-.swatches {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 24px;
-}
-
-.swatch {
-  width: 53px;
-  height: 53px;
-  min-width: 53px;
-  padding: 0;
-  margin: 0;
-  border-radius: 50%;
-  border: 3px solid white;
-  box-shadow: 0 0 0 1px #e6d5dc;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.swatch:hover {
-  transform: scale(1.08);
-}
-
-.swatch.selected {
-  box-shadow: 0 0 0 3px #bd5278;
-  transform: scale(1.08);
-}
-
-.hidden {
-  display: none !important;
-}
+.hidden { display: none !important; }
 
 .small {
   font-size: 12px;
@@ -204,38 +163,65 @@ select:focus {
 }
 
 #summary {
-  margin-top: 24px;
-  padding: 20px;
+  margin-top: 20px;
+  padding: 18px;
   border-radius: 18px;
   background: #fff4f7;
   text-align: left;
   overflow-wrap: anywhere;
+  line-height: 1.8;
+}
+
+.message-text {
+  padding: 20px 16px;
+  margin: 18px 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #fff1f6, #fff8fb);
+  border: 1px solid #f8e0e9;
+  color: #80435b;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 19px;
+  line-height: 1.75;
+}
+
+.choice-button {
+  min-height: 55px;
+}
+
+#musicButton {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 9999;
+  width: auto;
+  margin: 0;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 18px;
+  background: #fff0f5;
+  color: #a04469;
+  box-shadow: 0 4px 15px #0002;
+  font-size: 14px;
 }
 
 @keyframes appear {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
+  0%,100% { transform: scale(1); }
   50% { transform: scale(1.07); }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(-8deg); }
-  50% { transform: translateY(-15px) rotate(8deg); }
+@keyframes dreamyFloat {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-100vh); }
 }
 
 @media (max-width: 380px) {
-  .card {
-    padding: 30px 20px;
-    border-radius: 24px;
-  }
-
-  .swatches {
-    gap: 12px;
-  }
+  .card { padding: 20px 17px 25px; }
+  .romantic-picture { height: 150px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -244,189 +230,428 @@ select:focus {
     transition: none !important;
   }
 }
-  
-/* Dreamy romantic background */
-body {
-  background:
-    radial-gradient(ellipse at 15% 20%, #ffe0ec 0%, transparent 45%),
-    radial-gradient(ellipse at 85% 80%, #f5dfff 0%, transparent 45%),
-    linear-gradient(135deg, #fff7fa, #ffeaf2, #f9efff);
-  background-attachment: fixed;
-}
-
-/* Gentle floating hearts */
-body::before {
-  content: "♡     ♥       ♡       ♥       ♡";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  color: rgba(211, 105, 145, 0.22);
-  font-size: 25px;
-  letter-spacing: 28px;
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: 0;
-  animation: dreamyFloat 12s linear infinite;
-}
-
-@keyframes dreamyFloat {
-  from { transform: translateY(100vh); }
-  to   { transform: translateY(-100vh); }
-}
-
-#musicButton {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-#musicButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px #d98aaa55;
-}
-
 </style>
 </head>
+
 <body>
 <main class="card">
+
+  <!-- WELCOME -->
   <section id="welcome">
+    <img class="romantic-picture"
+      src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=900&q=80"
+      alt="Romantic hearts and soft pink lights">
     <div class="heart">💌</div>
-    <h1>Hey, you!</h1>
-    <p>I have a little question for you...</p>
-    <h2>Would you like to meet me? ❤️</h2>
-    <button onclick="showStep('dateStep')">Yes, let's meet! 💕</button>
-    <button class="secondary" onclick="document.getElementById('noMessage').classList.remove('hidden')">Not right now</button>
-    <p id="noMessage" class="hidden">No worries at all 😊 Maybe another time!</p>
+    <h1>Hey, Heer! ❤️</h1>
+    <p>I have a little question for you, and I hope it makes you smile.</p>
+    <h2>Would you like to meet me? 🥹💕</h2>
+    <button onclick="acceptInvitation()">Yes, let's meet! 💕</button>
+    <button class="secondary" onclick="declineInvitation()">Not right now</button>
   </section>
 
+  <!-- DECLINED -->
+  <section id="declined" class="hidden">
+    <div class="heart">🥺💔</div>
+    <h1>Oh, Heer...</h1>
+    <div class="message-text">
+      A little part of my heart feels sad, because I was hoping to see you.
+      But your choice matters to me, and I respect it. Maybe another time. ❤️
+    </div>
+    <p>Sending you a little sad heart anyway. 🥺💔</p>
+    <button class="secondary" onclick="showStep('welcome')">Go back</button>
+  </section>
+
+  <!-- DATE -->
   <section id="dateStep" class="hidden">
-    <div class="heart">📅</div>
-    <h1>Pick a date</h1>
-    <p>Which day works best for you?</p>
-    <label for="date">Our meetup date</label>
-    <input id="date" type="date" required>
+    <img class="romantic-picture"
+      src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=80"
+      alt="Romantic flowers">
+    <div class="heart">🌹</div>
+    <h1>Let's pick a date</h1>
+    <p>Any day with you could become one of my favourite memories. ❤️</p>
+    <label for="date">Which day should we save for us?</label>
+    <input id="date" type="date" min="2026-10-19" required>
     <button onclick="nextDate()">Next →</button>
     <button class="secondary" onclick="showStep('welcome')">Back</button>
   </section>
 
+  <!-- TIME -->
   <section id="timeStep" class="hidden">
+    <img class="romantic-picture"
+      src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80"
+      alt="Dreamy evening sky">
     <div class="heart">⏰</div>
-    <h1>Pick a time</h1>
-    <p>When should we meet?</p>
-    <label for="time">Preferred time</label>
+    <h1>Now, what time?</h1>
+    <p>Tell me when I should look forward to seeing you, Heer. 💗</p>
+    <label for="time">Our meetup time</label>
     <input id="time" type="time" required>
     <button onclick="nextTime()">Next →</button>
     <button class="secondary" onclick="showStep('dateStep')">Back</button>
   </section>
 
+  <!-- COLOUR -->
   <section id="colorStep" class="hidden">
-    <div class="heart">🎨</div>
-    <h1>Choose my outfit color</h1>
-    <p>What color would you like me to wear?</p>
-    <div class="swatches">
-      <button class="swatch" style="background:#f2a7bb" aria-label="Pink" onclick="pickColor('Pink',this)"></button>
-      <button class="swatch" style="background:#111111" aria-label="Black" onclick="pickColor('Black',this)"></button>
-      <button class="swatch" style="background:#ffffff" aria-label="White" onclick="pickColor('White',this)"></button>
-      <button class="swatch" style="background:#8ca889" aria-label="Sage green" onclick="pickColor('Sage green',this)"></button>
-      <button class="swatch" style="background:#7d263e" aria-label="Burgundy" onclick="pickColor('Burgundy',this)"></button>
-      <button class="swatch" style="background:#739ac5" aria-label="Blue" onclick="pickColor('Blue',this)"></button>
-    </div>
-    <p id="colorChosen">Choose your favorite 💗</p>
+    <img class="romantic-picture"
+      src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=80"
+      alt="Clothing and outfit inspiration">
+    <div class="heart">🎀</div>
+    <h1>Choose my outfit</h1>
+    <p>What colour would you like me to wear for you? ❤️</p>
+    <label for="outfitColor">Your chosen colour</label>
+    <input id="outfitColor" type="text" maxlength="80"
+      placeholder="Write any colour you like">
     <button onclick="nextColor()">Next →</button>
     <button class="secondary" onclick="showStep('timeStep')">Back</button>
   </section>
 
+  <!-- LOCATION -->
   <section id="placeStep" class="hidden">
+    <img class="romantic-picture"
+      src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=900&q=80"
+      alt="Warm, romantic evening">
     <div class="heart">📍</div>
     <h1>Where shall we meet?</h1>
-    <p>You can pick an idea or suggest your own place.</p>
-    <label for="place">Meeting place</label>
-    <select id="place">
-      <option value="">Choose a place...</option>
-      <option>Café ☕</option>
-      <option>Restaurant 🍽️</option>
-      <option>Rooftop 🌆</option>
-      <option>Park 🌳</option>
-      <option>Mall 🛍️</option>
-      <option value="Your suggestion">I'll suggest a place</option>
-    </select>
-    <label for="customPlace">Your suggested place (optional)</label>
-    <input id="customPlace" type="text" maxlength="150" placeholder="Type a place name">
-    <button onclick="finish()">See our plan ❤️</button>
+    <p>Wherever we meet, the best part will be spending time together. 🥰</p>
+
+    <button class="choice-button" onclick="chooseLocation('At home')">
+      At home 🏡
+    </button>
+    <button class="choice-button" onclick="chooseLocation('Outside')">
+      Outside 🌆
+    </button>
+
+    <div id="outsideField" class="hidden">
+      <label for="customPlace">Where would you like to go?</label>
+      <input id="customPlace" type="text" maxlength="150"
+        placeholder="Write the place name">
+      <button onclick="confirmOutside()">Next →</button>
+    </div>
+
     <button class="secondary" onclick="showStep('colorStep')">Back</button>
   </section>
 
-  <section id="finalStep" class="hidden">
-    <div class="heart">🥰</div>
-    <h1>It's a plan!</h1>
-    <p>Here's what you've picked:</p>
-    <p id="summary"></p>
-    <p class="small">Your choices are shown here. They haven't been sent to anyone yet.</p>
-    <button class="secondary" onclick="showStep('welcome')">Start again</button>
+  <!-- FOOD -->
+  <section id="foodStep" class="hidden">
+    <img class="romantic-picture"
+      src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80"
+      alt="A delicious meal">
+    <div class="heart">🍰</div>
+    <h1>The most important question!</h1>
+    <p>Heer, what would you like us to eat together? 😋❤️</p>
+    <button class="choice-button" onclick="chooseFoodAbdul()">Abdul ❤️</button>
+    <button class="choice-button" onclick="showFoodField()">Food 🍰</button>
+
+    <div id="foodField" class="hidden">
+      <label for="foodName">What food would you like?</label>
+      <input id="foodName" type="text" maxlength="150"
+        placeholder="Write the name of the dish">
+      <button onclick="chooseFoodDish()">Next →</button>
+    </div>
+
+    <button class="secondary" onclick="showStep('placeStep')">Back</button>
   </section>
+
+  <!-- MESSAGE AFTER EVERY ANSWER -->
+  <section id="messageStep" class="hidden">
+    <img class="romantic-picture"
+      src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=900&q=80"
+      alt="Romantic hearts">
+    <div class="heart" id="messageEmoji">💕</div>
+    <h1 id="messageTitle">Just for you, Heer</h1>
+    <div class="message-text" id="messageText"></div>
+    <button onclick="continueAfterMessage()">Next →</button>
+  </section>
+
+  <!-- FINAL -->
+  <section id="finalStep" class="hidden">
+    <img class="romantic-picture"
+      src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=900&q=80"
+      alt="Romantic hearts">
+    <div class="heart">😘💋</div>
+    <h1>It's a plan, Heer! ❤️</h1>
+    <div class="message-text">
+      I can't wait to see you, Heer. 🥹💕
+      I'm already looking forward to your smile, our little conversations,
+      and the beautiful memory we'll make together.
+      Until then, consider this a little kiss saved just for you. 😘💋❤️
+    </div>
+    <p>Here's our little plan:</p>
+    <div id="summary"></div>
+    <p id="saveStatus" class="small">
+      Your choices are being sent to save our plan.
+    </p>
+    <button class="secondary" onclick="restartInvitation()">Start again</button>
+  </section>
+
 </main>
 
+<audio id="romanticMusic" loop preload="auto">
+  <source src="./alexgrohl-romantic-piano-546204.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicButton" type="button">♡ Play our song</button>
+
 <script>
-const steps = ['welcome','dateStep','timeStep','colorStep','placeStep','finalStep'];
+const steps = [
+  'welcome',
+  'declined',
+  'dateStep',
+  'timeStep',
+  'colorStep',
+  'placeStep',
+  'foodStep',
+  'messageStep',
+  'finalStep'
+];
+
 let outfitColor = '';
+let meetingLocation = '';
+let customPlace = '';
+let foodChoice = '';
+let nextAfterMessage = '';
+let submissionStarted = false;
+
+const answers = {
+  answer: 'Yes',
+  date: '',
+  time: '',
+  color: '',
+  location: '',
+  customPlace: '',
+  food: ''
+};
 
 function showStep(id) {
-  steps.forEach(s => document.getElementById(s).classList.toggle('hidden', s !== id));
+  steps.forEach(step => {
+    document.getElementById(step).classList.toggle('hidden', step !== id);
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+function showMessage(message, nextStep, emoji = '💕', title = 'Just for you, Heer') {
+  document.getElementById('messageText').textContent = message;
+  document.getElementById('messageEmoji').textContent = emoji;
+  document.getElementById('messageTitle').textContent = title;
+  nextAfterMessage = nextStep;
+  showStep('messageStep');
+}
+
+function continueAfterMessage() {
+  if (nextAfterMessage === 'submit') {
+    finish();
+  } else {
+    showStep(nextAfterMessage);
+  }
+}
+
+function acceptInvitation() {
+  showMessage(
+    "You just made me smile! 🥹💕 I've been wanting to spend some time with you too, Heer. Just the thought of seeing you, sharing a few laughs, and making a beautiful little memory together makes me happy. I can't wait to see you. ♡",
+    'dateStep',
+    '🥹❤️',
+    'You made me smile!'
+  );
+}
+
+function declineInvitation() {
+  showStep('declined');
+}
+
 document.getElementById('date').min = '2026-10-19';
 
 function nextDate() {
-  if (!document.getElementById('date').value) {
-    alert('Please choose a date first 😊'); return;
+  const date = document.getElementById('date').value;
+
+  if (!date || date < '2026-10-19') {
+    alert('Please choose a date from 19 October 2026 onward. ❤️');
+    return;
   }
-  showStep('timeStep');
+
+  answers.date = date;
+
+  showMessage(
+    "A date is just a date, but spending it with you could make it unforgettable, Heer. ❤️",
+    'timeStep',
+    '🌹',
+    'A day to remember'
+  );
 }
+
 function nextTime() {
-  if (!document.getElementById('time').value) {
-    alert('Please choose a time first 😊'); return;
+  const time = document.getElementById('time').value;
+
+  if (!time) {
+    alert('Please choose a time first, Heer. 😊');
+    return;
   }
-  showStep('colorStep');
+
+  answers.time = time;
+
+  showMessage(
+    "Whatever time you choose, I'll be looking forward to every moment with you. ❤️",
+    'colorStep',
+    '⏰💕',
+    'A moment just for us'
+  );
 }
-function pickColor(color, button) {
-  outfitColor = color;
-  document.querySelectorAll('.swatch').forEach(b => b.classList.remove('selected'));
-  button.classList.add('selected');
-  document.getElementById('colorChosen').textContent = 'Your choice: ' + color + ' 💗';
-}
+
 function nextColor() {
-  if (!outfitColor) { alert('Please pick an outfit color 😊'); return; }
-  showStep('placeStep');
+  const color = document.getElementById('outfitColor').value.trim();
+
+  if (!color) {
+    alert('Please write an outfit colour. 💗');
+    document.getElementById('outfitColor').focus();
+    return;
+  }
+
+  outfitColor = color;
+  answers.color = color;
+
+  showMessage(
+    "It doesn't matter what colour I wear, Heer. ❤️ I only feel truly handsome when you're beside me, because your presence is the light that makes me shine. If I could keep your loving shadow beside me for a lifetime, I'd never want to stand in any other light. With you near me, I would always feel like the most handsome man in the world. 🥹💕",
+    'placeStep',
+    '🎀❤️',
+    'You make me shine'
+  );
+}
+
+function chooseLocation(location) {
+  meetingLocation = location;
+  answers.location = location;
+
+  if (location === 'At home') {
+    customPlace = '';
+    answers.customPlace = '';
+    document.getElementById('customPlace').value = '';
+
+    showMessage(
+      "Thank you for understanding, Heer. ❤️ Sometimes the simplest moments, in a comfortable place with you, can become the sweetest memories. 💕",
+      'foodStep',
+      '🏡❤️',
+      'A cosy little plan'
+    );
+    return;
+  }
+
+  document.getElementById('outsideField').classList.remove('hidden');
+  document.getElementById('customPlace').focus();
+}
+
+function confirmOutside() {
+  customPlace = document.getElementById('customPlace').value.trim();
+
+  if (!customPlace) {
+    alert('Please write the place you have in mind. ❤️');
+    document.getElementById('customPlace').focus();
+    return;
+  }
+
+  answers.customPlace = customPlace;
+
+  showMessage(
+    "It might be a little difficult, Heer, but for you I'll still try to make it happen. ❤️ Seeing you would make the effort worthwhile, and I'd be happy just to spend that time with you. 🥹💕",
+    'foodStep',
+    '🌆❤️',
+    'For you, I'll try'
+  );
+}
+
+function showFoodField() {
+  foodChoice = 'Food';
+  document.getElementById('foodField').classList.remove('hidden');
+  document.getElementById('foodName').focus();
+}
+
+function chooseFoodAbdul() {
+  foodChoice = 'Abdul';
+  answers.food = 'Abdul';
+
+  showMessage(
+    "Hmm… Abdul also wants to eat you, Heer! 😘❤️ You're sweeter than anything on the menu. Maybe I'll settle for a little kiss instead. 💋💕",
+    'submit',
+    '😘❤️',
+    'Abdul has an answer!'
+  );
+}
+
+function chooseFoodDish() {
+  const dish = document.getElementById('foodName').value.trim();
+
+  if (!dish) {
+    alert('Please write the name of the food you want. 🍰');
+    document.getElementById('foodName').focus();
+    return;
+  }
+
+  foodChoice = dish;
+  answers.food = dish;
+
+  showMessage(
+    'Hmm, you can eat the ' + dish + ', Heer… but I will still eat you! 😘❤️ You can save room for dessert, because I might steal a kiss or two. 💋💕',
+    'submit',
+    '🍰😘',
+    'Your food choice'
+  );
 }
 
 function finish() {
-  const place = document.getElementById('place').value;
-  const custom = document.getElementById('customPlace').value.trim();
+  if (submissionStarted) return;
+
   const date = document.getElementById('date').value;
   const time = document.getElementById('time').value;
+  const color = document.getElementById('outfitColor').value.trim();
 
-  if (!date || date < '2026-10-19') {
-    alert('Please choose a valid date 😊');
+  if (!date || date < '2026-10-19' || !time || !color ||
+      !meetingLocation || !answers.food) {
+    alert('Please complete all the choices first. ❤️');
     return;
   }
 
-  if (!time || !outfitColor || !place) {
-    alert('Please complete all your choices 😊');
-    return;
-  }
+  answers.date = date;
+  answers.time = time;
+  answers.color = color;
+  answers.location = meetingLocation;
+  answers.customPlace = meetingLocation === 'Outside' ? customPlace : '';
+  answers.food = foodChoice === 'Abdul'
+    ? 'Abdul'
+    : document.getElementById('foodName').value.trim();
 
-  if (place === 'Your suggestion' && !custom) {
-    alert('Please type your suggested place 😊');
-    return;
-  }
+  const placeText = meetingLocation === 'Outside'
+    ? customPlace
+    : 'At home';
 
-  const finalPlace = place === 'Your suggestion'
-    ? custom
-    : (custom || place);
+  document.getElementById('summary').innerHTML =
+    '<strong>📅 Date:</strong> ' + escapeHTML(date) + '<br><br>' +
+    '<strong>⏰ Time:</strong> ' + escapeHTML(time) + '<br><br>' +
+    '<strong>👕 My outfit:</strong> ' + escapeHTML(color) + '<br><br>' +
+    '<strong>📍 Location:</strong> ' + escapeHTML(placeText) + '<br><br>' +
+    '<strong>🍰 Food choice:</strong> ' + escapeHTML(answers.food);
 
-  // Replace this placeholder with your deployed Apps Script URL.
+  showStep('finalStep');
+  submissionStarted = true;
+  submitAnswers();
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, character => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  })[character]);
+}
+
+function submitAnswers() {
+  // Keep your actual deployed Google Apps Script /exec URL here.
   const endpoint = 'https://script.google.com/macros/s/AKfycbxkQe73VALxE5DtzSpvHXuVqDf3thcoCftuLYfhumWU7Mmfm70cn1JHwkEtjIk8fQ76/exec';
 
-  // Submit the answers using a hidden form.
-  // This avoids browser cross-origin response-reading restrictions.
+  if (!endpoint.startsWith('https://script.google.com/')) {
+    document.getElementById('saveStatus').textContent =
+      'The plan is ready, but the Google Apps Script URL needs to be added.';
+    return;
+  }
+
   const frame = document.createElement('iframe');
   frame.name = 'submissionFrame';
   frame.style.display = 'none';
@@ -437,15 +662,6 @@ function finish() {
   form.action = endpoint;
   form.target = 'submissionFrame';
   form.style.display = 'none';
-
-  const answers = {
-    answer: 'Yes',
-    date: date,
-    time: time,
-    color: outfitColor,
-    location: place,
-    customPlace: custom
-  };
 
   Object.entries(answers).forEach(([key, value]) => {
     const input = document.createElement('input');
@@ -458,31 +674,34 @@ function finish() {
   document.body.appendChild(form);
   form.submit();
 
-  document.getElementById('summary').innerHTML =
-    '<strong>📅 Date:</strong> ' + date + '<br><br>' +
-    '<strong>⏰ Time:</strong> ' + time + '<br><br>' +
-    '<strong>👕 My outfit:</strong> ' + outfitColor + '<br><br>' +
-    '<strong>📍 Place:</strong> ' + finalPlace;
-
-  showStep('finalStep');
+  document.getElementById('saveStatus').textContent =
+    'Your plan has been submitted. 💌';
 }
 
-</script>
-  
+function restartInvitation() {
+  submissionStarted = false;
+  outfitColor = '';
+  meetingLocation = '';
+  customPlace = '';
+  foodChoice = '';
+  nextAfterMessage = '';
 
-<audio id="romanticMusic" autoplay loop preload="auto">
-  <source src="./alexgrohl-romantic-piano-546204.mp3" type="audio/mpeg">
-</audio>
+  Object.keys(answers).forEach(key => {
+    answers[key] = key === 'answer' ? 'Yes' : '';
+  });
 
-<button id="musicButton" type="button"
-  style="position:fixed;bottom:20px;right:20px;z-index:9999;
-  border:none;border-radius:30px;padding:12px 18px;
-  background:#fff0f5;color:#a04469;box-shadow:0 4px 15px #0002;
-  cursor:pointer;font-size:14px;">
-  ♡ Play our song
-</button>
+  document.getElementById('date').value = '';
+  document.getElementById('time').value = '';
+  document.getElementById('outfitColor').value = '';
+  document.getElementById('customPlace').value = '';
+  document.getElementById('foodName').value = '';
+  document.getElementById('outsideField').classList.add('hidden');
+  document.getElementById('foodField').classList.add('hidden');
 
-<script>
+  showStep('welcome');
+}
+
+// Piano music controls
 (() => {
   const music = document.getElementById('romanticMusic');
   const button = document.getElementById('musicButton');
@@ -493,7 +712,6 @@ function finish() {
       button.textContent = '♫ Pause our song';
     } catch (error) {
       button.textContent = '♡ Play our song';
-      console.log('Autoplay needs user interaction:', error);
     }
   }
 
@@ -506,15 +724,12 @@ function finish() {
     }
   });
 
-  // Try autoplay when the page loads.
   window.addEventListener('load', playMusic);
 
-  // If autoplay is blocked, try again on the visitor's first interaction.
   document.addEventListener('pointerdown', () => {
     if (music.paused) playMusic();
   }, { once: true });
 })();
 </script>
-
 </body>
 </html>
