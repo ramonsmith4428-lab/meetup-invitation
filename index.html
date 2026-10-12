@@ -2,738 +2,1221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Little Invitation for Heer 💌</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff6f7">
+  <title>A Little Plan for Heer ♡</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='85'%3E%E2%99%A1%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+  <style>
+    :root {
+      --rose: #b95e79;
+      --rose-dark: #91425d;
+      --rose-light: #f6dce4;
+      --blush: #fff5f7;
+      --lavender: #f1edf8;
+      --ink: #342731;
+      --muted: #81727e;
+      --white: #ffffff;
+      --border: #f0e2e8;
+      --shadow: 0 24px 70px rgba(100, 48, 72, .11);
+      --radius: 26px;
+    }
 
-* { box-sizing: border-box; }
+    * { box-sizing: border-box; }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: grid;
-  place-items: center;
-  padding: 24px 16px 85px;
-  font-family: 'DM Sans', Arial, sans-serif;
-  color: #563544;
-  background:
-    radial-gradient(ellipse at 15% 20%, #ffe0ec 0%, transparent 45%),
-    radial-gradient(ellipse at 85% 80%, #f5dfff 0%, transparent 45%),
-    linear-gradient(135deg, #fff7fa, #ffeaf2, #f9efff);
-  background-attachment: fixed;
-  overflow-x: hidden;
-}
+    html { min-height: 100%; scroll-behavior: smooth; }
 
-body::before {
-  content: "♡     ♥       ♡       ♥       ♡";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  color: rgba(211,105,145,.22);
-  font-size: 25px;
-  letter-spacing: 20px;
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: 0;
-  animation: dreamyFloat 12s linear infinite;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 28px 16px 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 10% 10%, rgba(247, 218, 229, .7), transparent 35%),
+        radial-gradient(ellipse at 90% 85%, rgba(226, 217, 245, .65), transparent 38%),
+        linear-gradient(140deg, #fff9fa 0%, #fff5f7 52%, #f8f5fc 100%);
+    }
 
-.card {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 460px;
-  padding: 25px 25px 30px;
-  background: rgba(255,255,255,.91);
-  border: 1px solid rgba(255,255,255,.95);
-  border-radius: 28px;
-  box-shadow: 0 24px 70px rgba(132,66,91,.15);
-  text-align: center;
-  backdrop-filter: blur(14px);
-  animation: appear .5s ease both;
-}
+    button, input, select, textarea { font: inherit; }
+    button { -webkit-tap-highlight-color: transparent; }
 
-.romantic-picture {
-  width: 100%;
-  height: 185px;
-  object-fit: cover;
-  display: block;
-  border-radius: 20px;
-  margin-bottom: 18px;
-  background: #fce3ed;
-}
+    .site-shell {
+      width: 100%;
+      max-width: 650px;
+      margin: auto;
+    }
 
-.heart {
-  font-size: 42px;
-  margin: 8px 0;
-  animation: heartbeat 2.5s ease-in-out infinite;
-}
+    .brand {
+      text-align: center;
+      margin-bottom: 18px;
+      color: var(--rose-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
 
-h1 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(28px, 7vw, 36px);
-  font-weight: 600;
-  line-height: 1.25;
-  margin: 12px 0;
-  color: #783d55;
-}
+    .brand span {
+      display: inline-block;
+      margin: 0 7px;
+      color: #d99bad;
+    }
 
-h2 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 22px;
-  line-height: 1.45;
-  color: #87455f;
-}
+    .card {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 255, 255, .94);
+      border: 1px solid rgba(255, 255, 255, .95);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      animation: cardIn .42s ease both;
+    }
 
-p {
-  font-size: 15px;
-  line-height: 1.8;
-  color: #896b79;
-}
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-button, input, select {
-  width: 100%;
-  margin-top: 14px;
-  padding: 15px;
-  border-radius: 15px;
-  font: inherit;
-  font-size: 15px;
-}
+    .hero-image {
+      position: relative;
+      width: 100%;
+      height: 255px;
+      overflow: hidden;
+      background: #f1e4e9;
+    }
 
-button {
-  border: 0;
-  background: linear-gradient(135deg, #d9698b, #bd5278);
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 7px 18px rgba(189,82,120,.19);
-  transition: transform .2s ease, box-shadow .2s ease;
-}
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 48%;
+    }
 
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(189,82,120,.25);
-}
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 35% 0 0;
+      background: linear-gradient(transparent, rgba(48, 25, 39, .18));
+      pointer-events: none;
+    }
 
-button:active { transform: scale(.98); }
+    .image-caption {
+      position: absolute;
+      z-index: 1;
+      left: 22px;
+      bottom: 18px;
+      color: white;
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+      font-style: italic;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, .3);
+    }
 
-button.secondary {
-  background: #fff1f5;
-  color: #8c4c65;
-  box-shadow: none;
-  border: 1px solid #f3dce5;
-}
+    .card-content {
+      padding: 30px 34px 34px;
+    }
 
-button:focus-visible, input:focus-visible {
-  outline: 3px solid #e6a2b9;
-  outline-offset: 3px;
-}
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--rose);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
 
-input {
-  border: 1px solid #ead5de;
-  background: #fffdfd;
-  color: #563544;
-}
+    h1, h2 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      line-height: 1.22;
+      letter-spacing: -.45px;
+    }
 
-input:focus {
-  border-color: #cf7897;
-  box-shadow: 0 0 0 4px rgba(217,105,139,.1);
-  outline: none;
-}
+    h1 { font-size: clamp(32px, 6vw, 44px); }
+    h2 { font-size: clamp(28px, 5vw, 36px); }
 
-label {
-  display: block;
-  text-align: left;
-  margin-top: 18px;
-  color: #775261;
-  font-size: 13px;
-  font-weight: 700;
-}
+    .subtitle {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
 
-.hidden { display: none !important; }
+    .heart-divider {
+      margin: 20px 0;
+      color: #d998ac;
+      font-size: 17px;
+      text-align: center;
+      letter-spacing: 8px;
+    }
 
-.small {
-  font-size: 12px;
-  color: #a18a95;
-}
+    .progress-wrap { margin-bottom: 24px; }
 
-#summary {
-  margin-top: 20px;
-  padding: 18px;
-  border-radius: 18px;
-  background: #fff4f7;
-  text-align: left;
-  overflow-wrap: anywhere;
-  line-height: 1.8;
-}
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 9px;
+      color: var(--muted);
+      font-size: 11px;
+    }
 
-.message-text {
-  padding: 20px 16px;
-  margin: 18px 0;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #fff1f6, #fff8fb);
-  border: 1px solid #f8e0e9;
-  color: #80435b;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 19px;
-  line-height: 1.75;
-}
+    .progress-track {
+      height: 5px;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #f4e9ee;
+    }
 
-.choice-button {
-  min-height: 55px;
-}
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #d89aaf, #a95a77);
+      transition: width .3s ease;
+    }
 
-#musicButton {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  z-index: 9999;
-  width: auto;
-  margin: 0;
-  border: none;
-  border-radius: 30px;
-  padding: 12px 18px;
-  background: #fff0f5;
-  color: #a04469;
-  box-shadow: 0 4px 15px #0002;
-  font-size: 14px;
-}
+    .field-label {
+      display: block;
+      margin: 24px 0 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
 
-@keyframes appear {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    .text-input, .select-input {
+      display: block;
+      width: 100%;
+      min-height: 51px;
+      padding: 13px 15px;
+      color: var(--ink);
+      background: #fffafb;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
 
-@keyframes heartbeat {
-  0%,100% { transform: scale(1); }
-  50% { transform: scale(1.07); }
-}
+    .text-input:focus, .select-input:focus {
+      border-color: #ce91a5;
+      box-shadow: 0 0 0 3px rgba(206, 145, 165, .14);
+    }
 
-@keyframes dreamyFloat {
-  from { transform: translateY(100vh); }
-  to { transform: translateY(-100vh); }
-}
+    .text-input::placeholder { color: #b4a4ad; }
 
-@media (max-width: 380px) {
-  .card { padding: 20px 17px 25px; }
-  .romantic-picture { height: 150px; }
-}
+    .options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-</style>
+    .option {
+      min-width: 0;
+      padding: 16px 13px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: #fffafb;
+      color: var(--ink);
+      cursor: pointer;
+      text-align: left;
+      transition: transform .18s, border-color .18s, background .18s, box-shadow .18s;
+    }
+
+    .option:hover {
+      transform: translateY(-2px);
+      border-color: #d6a0b1;
+      box-shadow: 0 7px 20px rgba(140, 65, 93, .08);
+    }
+
+    .option.selected {
+      border-color: var(--rose);
+      background: #fff0f4;
+      box-shadow: 0 0 0 2px rgba(185, 94, 121, .1);
+    }
+
+    .option-icon {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 23px;
+    }
+
+    .option-title {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .option-description {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .color-option {
+      padding: 10px 4px 11px;
+      border: 1px solid transparent;
+      border-radius: 14px;
+      background: transparent;
+      cursor: pointer;
+      color: var(--ink);
+      text-align: center;
+    }
+
+    .color-option.selected {
+      border-color: #d6a0b1;
+      background: #fff2f6;
+    }
+
+    .swatch {
+      display: block;
+      width: 39px;
+      height: 39px;
+      margin: 0 auto 8px;
+      border: 1px solid rgba(0, 0, 0, .08);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .25);
+    }
+
+    .color-name { font-size: 11px; font-weight: 600; }
+
+    .inline-note {
+      margin-top: 12px;
+      padding: 12px 14px;
+      color: #786471;
+      background: #fbf5f8;
+      border-radius: 12px;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .button-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 49px;
+      padding: 13px 20px;
+      border: 1px solid transparent;
+      border-radius: 13px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .18s, background .18s, box-shadow .18s;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      flex: 1;
+      color: white;
+      background: linear-gradient(135deg, #c87591, #a64f6e);
+      box-shadow: 0 8px 20px rgba(166, 79, 110, .2);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #b86682, #93425f);
+      box-shadow: 0 10px 24px rgba(166, 79, 110, .25);
+    }
+
+    .btn-secondary {
+      color: var(--rose-dark);
+      background: #fff;
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover { background: #fff4f7; }
+
+    .btn-full { width: 100%; }
+
+    .welcome-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 27px;
+    }
+
+    .welcome-actions .btn { width: 100%; }
+
+    .message-card {
+      padding: 34px;
+      text-align: center;
+    }
+
+    .message-icon {
+      display: inline-flex;
+      width: 60px;
+      height: 60px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      background: #fff0f4;
+      font-size: 27px;
+    }
+
+    .message-copy {
+      max-width: 430px;
+      margin: 17px auto 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .summary-list {
+      margin-top: 22px;
+      padding: 5px 17px;
+      background: #fff8fa;
+      border: 1px solid #f3e5eb;
+      border-radius: 15px;
+      text-align: left;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 13px 0;
+      border-bottom: 1px solid #f1e5ea;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .summary-item:last-child { border-bottom: 0; }
+    .summary-label { color: var(--muted); }
+    .summary-value { font-weight: 700; text-align: right; overflow-wrap: anywhere; }
+
+    .small-print {
+      margin-top: 18px;
+      color: #9a8993;
+      font-size: 10px;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .error-message {
+      display: none;
+      margin-top: 12px;
+      color: #a83f58;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .error-message.visible { display: block; }
+
+    .music-toggle {
+      position: fixed;
+      z-index: 20;
+      right: 20px;
+      bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 47px;
+      padding: 12px 17px;
+      color: var(--rose-dark);
+      background: rgba(255, 255, 255, .94);
+      border: 1px solid #f0dce4;
+      border-radius: 50px;
+      box-shadow: 0 7px 25px rgba(87, 42, 62, .12);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      backdrop-filter: blur(10px);
+    }
+
+    .music-toggle:hover { background: #fff0f4; }
+
+    .music-symbol {
+      display: inline-block;
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .footer-note {
+      margin-top: 20px;
+      color: #a58f9b;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 520px) {
+      body { padding: 15px 10px 90px; align-items: flex-start; }
+      .brand { margin: 7px 0 14px; font-size: 10px; letter-spacing: 2.2px; }
+      .card { border-radius: 21px; }
+      .hero-image { height: 205px; }
+      .card-content { padding: 25px 21px 25px; }
+      .message-card { padding: 28px 21px; }
+      h1 { font-size: 34px; }
+      h2 { font-size: 29px; }
+      .options { gap: 9px; }
+      .option { padding: 14px 11px; }
+      .color-grid { gap: 4px; }
+      .swatch { width: 34px; height: 34px; }
+      .button-row { gap: 9px; }
+      .btn { padding: 12px 14px; font-size: 12px; }
+      .welcome-actions { gap: 9px; }
+      .music-toggle { right: 12px; bottom: 12px; min-height: 43px; padding: 10px 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<main class="card">
-
-  <!-- WELCOME -->
-  <section id="welcome">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=900&q=80"
-      alt="Romantic hearts and soft pink lights">
-    <div class="heart">💌</div>
-    <h1>Hey, Heer! ❤️</h1>
-    <p>I have a little question for you, and I hope it makes you smile.</p>
-    <h2>Would you like to meet me? ❤️💕</h2>
-    <button onclick="acceptInvitation()">Yes, let's meet! 💕</button>
-    <button class="secondary" onclick="declineInvitation()">Not right now</button>
-  </section>
-
-  <!-- DECLINED -->
-  <section id="declined" class="hidden">
-    <div class="heart">🥺💔</div>
-    <h1>Oh, Heer...</h1>
-    <div class="message-text">
-      A little part of my heart feels sad, because I was hoping to see you.
-      But your choice matters to me, and I respect it. Maybe another time. ❤️
-    </div>
-    <p>Sending you a little sad heart anyway. 🥺💔</p>
-    <button class="secondary" onclick="showStep('welcome')">Go back</button>
-  </section>
-
-  <!-- DATE -->
-  <section id="dateStep" class="hidden">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=80"
-      alt="Romantic flowers">
-    <div class="heart">🌹</div>
-    <h1>Let's pick a date</h1>
-    <p>Any day with you could become one of my favourite memories. ❤️</p>
-    <label for="date">Which day should we save for us?</label>
-    <input id="date" type="date" min="2026-10-19" required>
-    <button onclick="nextDate()">Next →</button>
-    <button class="secondary" onclick="showStep('welcome')">Back</button>
-  </section>
-
-  <!-- TIME -->
-  <section id="timeStep" class="hidden">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80"
-      alt="Dreamy evening sky">
-    <div class="heart">⏰</div>
-    <h1>Now, what time?</h1>
-    <p>Tell me when I should look forward to seeing you, Heer. 💗</p>
-    <label for="time">Our meetup time</label>
-    <input id="time" type="time" required>
-    <button onclick="nextTime()">Next →</button>
-    <button class="secondary" onclick="showStep('dateStep')">Back</button>
-  </section>
-
-  <!-- COLOUR -->
-  <section id="colorStep" class="hidden">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=80"
-      alt="Clothing and outfit inspiration">
-    <div class="heart">🎀</div>
-    <h1>Choose my outfit</h1>
-    <p>What colour would you like me to wear for you? ❤️</p>
-    <label for="outfitColor">Your chosen colour</label>
-    <input id="outfitColor" type="text" maxlength="80"
-      placeholder="Write any colour you like">
-    <button onclick="nextColor()">Next →</button>
-    <button class="secondary" onclick="showStep('timeStep')">Back</button>
-  </section>
-
-  <!-- LOCATION -->
-  <section id="placeStep" class="hidden">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=900&q=80"
-      alt="Warm, romantic evening">
-    <div class="heart">📍</div>
-    <h1>Where shall we meet?</h1>
-    <p>Wherever we meet, the best part will be spending time together. 🥰</p>
-
-    <button class="choice-button" onclick="chooseLocation('At home')">
-      At home 🏡
-    </button>
-    <button class="choice-button" onclick="chooseLocation('Outside')">
-      Outside 🌆
-    </button>
-
-    <div id="outsideField" class="hidden">
-      <label for="customPlace">Where would you like to go?</label>
-      <input id="customPlace" type="text" maxlength="150"
-        placeholder="Write the place name">
-      <button onclick="confirmOutside()">Next →</button>
-    </div>
-
-    <button class="secondary" onclick="showStep('colorStep')">Back</button>
-  </section>
-
-  <!-- FOOD -->
-  <section id="foodStep" class="hidden">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80"
-      alt="A delicious meal">
-    <div class="heart">🍰</div>
-    <h1>The most important question!</h1>
-    <p>Heer, what would you like us to eat together? 😋❤️</p>
-    <button class="choice-button" onclick="chooseFoodAbdul()">Abdul ❤️</button>
-    <button class="choice-button" onclick="showFoodField()">Food 🍰</button>
-
-    <div id="foodField" class="hidden">
-      <label for="foodName">What food would you like?</label>
-      <input id="foodName" type="text" maxlength="150"
-        placeholder="Write the name of the dish">
-      <button onclick="chooseFoodDish()">Next →</button>
-    </div>
-
-    <button class="secondary" onclick="showStep('placeStep')">Back</button>
-  </section>
-
-  <!-- MESSAGE AFTER EVERY ANSWER -->
-  <section id="messageStep" class="hidden">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=900&q=80"
-      alt="Romantic hearts">
-    <div class="heart" id="messageEmoji">💕</div>
-    <h1 id="messageTitle">Just for you, Heer</h1>
-    <div class="message-text" id="messageText"></div>
-    <button onclick="continueAfterMessage()">Next →</button>
-  </section>
-
-  <!-- FINAL -->
-  <section id="finalStep" class="hidden">
-    <img class="romantic-picture"
-      src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=900&q=80"
-      alt="Romantic hearts">
-    <div class="heart">😘💋</div>
-    <h1>It's a plan, Heer! ❤️</h1>
-    <div class="message-text">
-      I can't wait to see you, Heer. 🥰💕
-      I'm already looking forward to your smile, our little conversations,
-      and the beautiful memory we'll make together.
-      Until then, consider this a little kiss saved just for you. 😘💋❤️
-    </div>
-    <p>Here's our little plan:</p>
-    <div id="summary"></div>
-    <p id="saveStatus" class="small">
-      Your choices are being sent to save our plan.
-    </p>
-    <button class="secondary" onclick="restartInvitation()">Start again</button>
-  </section>
-
-</main>
-
-<audio id="romanticMusic" loop preload="auto">
-  <source src="./alexgrohl-romantic-piano-546204.mp3" type="audio/mpeg">
-</audio>
-
-<button id="musicButton" type="button">♡ Play our song</button>
-
-<script>
-const steps = [
-  'welcome',
-  'declined',
-  'dateStep',
-  'timeStep',
-  'colorStep',
-  'placeStep',
-  'foodStep',
-  'messageStep',
-  'finalStep'
-];
-
-let outfitColor = '';
-let meetingLocation = '';
-let customPlace = '';
-let foodChoice = '';
-let nextAfterMessage = '';
-let submissionStarted = false;
-
-const answers = {
-  answer: 'Yes',
-  date: '',
-  time: '',
-  color: '',
-  location: '',
-  customPlace: '',
-  food: ''
-};
-
-function showStep(id) {
-  steps.forEach(step => {
-    document.getElementById(step).classList.toggle('hidden', step !== id);
-  });
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function showMessage(message, nextStep, emoji = '💕', title = 'Just for you, Heer') {
-  document.getElementById('messageText').textContent = message;
-  document.getElementById('messageEmoji').textContent = emoji;
-  document.getElementById('messageTitle').textContent = title;
-  nextAfterMessage = nextStep;
-  showStep('messageStep');
-}
-
-function continueAfterMessage() {
-  if (nextAfterMessage === 'submit') {
-    finish();
-  } else {
-    showStep(nextAfterMessage);
-  }
-}
-
-function acceptInvitation() {
-  showMessage(
-    "You just made me smile! 🥰💕 I've been wanting to spend some time with you too, Heer. Just the thought of seeing you, sharing a few laughs, and making a beautiful little memory together makes me happy. I can't wait to see you. ♡",
-    'dateStep',
-    '🥰❤️',
-    'You made me smile!'
-  );
-}
-window.acceptInvitation = acceptInvitation;
-function declineInvitation() {
-  showStep('declined');
-}
-
-document.getElementById('date').min = '2026-10-19';
-
-function nextDate() {
-  const date = document.getElementById('date').value;
-
-  if (!date || date < '2026-10-19') {
-    alert('Please choose a date from 19 October 2026 onward. ❤️');
-    return;
-  }
-
-  answers.date = date;
-
-  showMessage(
-    "A date is just a date, but spending it with you could make it unforgettable, Heer. ❤️",
-    'timeStep',
-    '🌹',
-    'A day to remember'
-  );
-}
-
-function nextTime() {
-  const time = document.getElementById('time').value;
-
-  if (!time) {
-    alert('Please choose a time first, Heer. 😊');
-    return;
-  }
-
-  answers.time = time;
-
-  showMessage(
-    "Whatever time you choose, I'll be looking forward to every moment with you. ❤️",
-    'colorStep',
-    '⏰💕',
-    'A moment just for us'
-  );
-}
-
-function nextColor() {
-  const color = document.getElementById('outfitColor').value.trim();
-
-  if (!color) {
-    alert('Please write an outfit colour. 💗');
-    document.getElementById('outfitColor').focus();
-    return;
-  }
-
-  outfitColor = color;
-  answers.color = color;
-
-  showMessage(
-    "It doesn't matter what colour I wear, Heer. ❤️ I only feel truly handsome when you're beside me, because your presence is the light that makes me shine. If I could keep your loving shadow beside me for a lifetime, I'd never want to stand in any other light. With you near me, I would always feel like the most handsome man in the world. 🥰💕",
-    'placeStep',
-    '🎀❤️',
-    'You make me shine'
-  );
-}
-
-function chooseLocation(location) {
-  meetingLocation = location;
-  answers.location = location;
-
-  if (location === 'At home') {
-    customPlace = '';
-    answers.customPlace = '';
-    document.getElementById('customPlace').value = '';
-
-    showMessage(
-      "Thank you for understanding, Heer. ❤️ Sometimes the simplest moments, in a comfortable place with you, can become the sweetest memories. 💕",
-      'foodStep',
-      '🏡❤️',
-      'A cosy little plan'
-    );
-    return;
-  }
-
-  document.getElementById('outsideField').classList.remove('hidden');
-  document.getElementById('customPlace').focus();
-}
-
-function confirmOutside() {
-  customPlace = document.getElementById('customPlace').value.trim();
-
-  if (!customPlace) {
-    alert('Please write the place you have in mind. ❤️');
-    document.getElementById('customPlace').focus();
-    return;
-  }
-
-  answers.customPlace = customPlace;
-
-
-  showMessage(
-    "It might be a little difficult, Heer, but for you I'll still try to make it happen. ❤️ Seeing you would make the effort worthwhile, and I'd be happy just to spend that time with you. 🥰💕",
-    'foodStep',
-    '🌆❤️',
-    'For you, I\'ll try'
-  );
-}
-
-
-function showFoodField() {
-  foodChoice = 'Food';
-  document.getElementById('foodField').classList.remove('hidden');
-  document.getElementById('foodName').focus();
-}
-
-function chooseFoodAbdul() {
-  foodChoice = 'Abdul';
-  answers.food = 'Abdul';
-
-  showMessage(
-    "Hmm… Abdul also wants to eat you, Heer! 😘❤️ You're sweeter than anything on the menu. Maybe I'll settle for a little kiss instead. 💋💕",
-    'submit',
-    '😘❤️',
-    'Abdul has an answer!'
-  );
-}
-
-function chooseFoodDish() {
-  const dish = document.getElementById('foodName').value.trim();
-
-  if (!dish) {
-    alert('Please write the name of the food you want. 🍰');
-    document.getElementById('foodName').focus();
-    return;
-  }
-
-  foodChoice = dish;
-  answers.food = dish;
-
-  showMessage(
-    'Hmm, you can eat the ' + dish + ', Heer… but I will still eat you! 😘❤️ You can save room for dessert, because I might steal a kiss or two. 💋💕',
-    'submit',
-    '🍰😘',
-    'Your food choice'
-  );
-}
-
-function finish() {
-  if (submissionStarted) return;
-
-  const date = document.getElementById('date').value;
-  const time = document.getElementById('time').value;
-  const color = document.getElementById('outfitColor').value.trim();
-
-  if (!date || date < '2026-10-19' || !time || !color ||
-      !meetingLocation || !answers.food) {
-    alert('Please complete all the choices first. ❤️');
-    return;
-  }
-
-  answers.date = date;
-  answers.time = time;
-  answers.color = color;
-  answers.location = meetingLocation;
-  answers.customPlace = meetingLocation === 'Outside' ? customPlace : '';
-  answers.food = foodChoice === 'Abdul'
-    ? 'Abdul'
-    : document.getElementById('foodName').value.trim();
-
-  const placeText = meetingLocation === 'Outside'
-    ? customPlace
-    : 'At home';
-
-  document.getElementById('summary').innerHTML =
-    '<strong>📅 Date:</strong> ' + escapeHTML(date) + '<br><br>' +
-    '<strong>⏰ Time:</strong> ' + escapeHTML(time) + '<br><br>' +
-    '<strong>👕 My outfit:</strong> ' + escapeHTML(color) + '<br><br>' +
-    '<strong>📍 Location:</strong> ' + escapeHTML(placeText) + '<br><br>' +
-    '<strong>🍰 Food choice:</strong> ' + escapeHTML(answers.food);
-
-  showStep('finalStep');
-  submissionStarted = true;
-  submitAnswers();
-}
-
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, character => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;'
-  })[character]);
-}
-
-function submitAnswers() {
-  // Keep your actual deployed Google Apps Script /exec URL here.
-  const endpoint = 'https://script.google.com/macros/s/AKfycbxkQe73VALxE5DtzSpvHXuVqDf3thcoCftuLYfhumWU7Mmfm70cn1JHwkEtjIk8fQ76/exec';
-
-  if (!endpoint.startsWith('https://script.google.com/')) {
-    document.getElementById('saveStatus').textContent =
-      'The plan is ready, but the Google Apps Script URL needs to be added.';
-    return;
-  }
-
-  const frame = document.createElement('iframe');
-  frame.name = 'submissionFrame';
-  frame.style.display = 'none';
-  document.body.appendChild(frame);
-
-  const form = document.createElement('form');
-  form.method = 'POST';
-  form.action = endpoint;
-  form.target = 'submissionFrame';
-  form.style.display = 'none';
-
-  Object.entries(answers).forEach(([key, value]) => {
-    const input = document.createElement('input');
-    input.type = 'hidden';
-    input.name = key;
-    input.value = value;
-    form.appendChild(input);
-  });
-
-  document.body.appendChild(form);
-  form.submit();
-
-  document.getElementById('saveStatus').textContent =
-    'Your plan has been submitted. 💌';
-}
-
-function restartInvitation() {
-  submissionStarted = false;
-  outfitColor = '';
-  meetingLocation = '';
-  customPlace = '';
-  foodChoice = '';
-  nextAfterMessage = '';
-
-  Object.keys(answers).forEach(key => {
-    answers[key] = key === 'answer' ? 'Yes' : '';
-  });
-
-  document.getElementById('date').value = '';
-  document.getElementById('time').value = '';
-  document.getElementById('outfitColor').value = '';
-  document.getElementById('customPlace').value = '';
-  document.getElementById('foodName').value = '';
-  document.getElementById('outsideField').classList.add('hidden');
-  document.getElementById('foodField').classList.add('hidden');
-
-  showStep('welcome');
-}
-
-
-/* Piano music controls */
-(() => {
-  const music = document.getElementById('romanticMusic');
-  const button = document.getElementById('musicButton');
-
-  button.addEventListener('click', async () => {
-    if (music.paused) {
+  <main class="site-shell">
+    <div class="brand">A little something for <span>♡</span> Heer</div>
+
+    <!-- WELCOME -->
+    <section class="card screen" id="screen-welcome">
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1200&q=85"
+          alt="Romantic pink roses and soft romantic details"
+          fetchpriority="high">
+        <div class="image-caption">Something special, just for you.</div>
+      </div>
+      <div class="card-content">
+        <p class="eyebrow">A little invitation</p>
+        <h1>Heer, can I plan a little date with you?</h1>
+        <p class="subtitle">
+          Nothing too complicated. Just a lovely day, good food, and a little time together.
+          I'd love to plan it around what you like.
+        </p>
+        <div class="heart-divider">♡ · ♡ · ♡</div>
+        <div class="welcome-actions">
+          <button class="btn btn-primary" type="button" onclick="acceptInvitation()">
+            Yes, let's do it ♡
+          </button>
+          <button class="btn btn-secondary" type="button" onclick="showScreen('screen-decline')">
+            Not right now
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DECLINE -->
+    <section class="card screen hidden" id="screen-decline">
+      <div class="message-card">
+        <div class="message-icon">🌷</div>
+        <p class="eyebrow">No pressure, Heer</p>
+        <h2>That's okay, always.</h2>
+        <p class="message-copy">
+          The invitation will still be here whenever you feel like it.
+          Take your time. ♡
+        </p>
+        <div class="button-row">
+          <button class="btn btn-secondary" type="button" onclick="showScreen('screen-welcome')">
+            ← Back
+          </button>
+          <button class="btn btn-primary" type="button" onclick="acceptInvitation()">
+            Maybe let's plan it ♡
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO MESSAGE -->
+    <section class="card screen hidden" id="screen-message">
+      <div class="message-card">
+        <div class="message-icon">💌</div>
+        <p class="eyebrow">Just between us</p>
+        <h2>A little time together?</h2>
+        <p class="message-copy">
+          Heer, I want this to be a day that feels comfortable and special for you.
+          So you get to help decide the details — when, what to wear, where to go,
+          and what to eat.
+        </p>
+        <div class="heart-divider">♡</div>
+        <p class="message-copy">Ready? Let's plan our little date together.</p>
+        <div class="button-row">
+          <button class="btn btn-secondary" type="button" onclick="showScreen('screen-welcome')">
+            ← Back
+          </button>
+          <button class="btn btn-primary" type="button" onclick="goToStep(0)">
+            Let's plan it →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATE -->
+    <section class="card screen hidden" id="screen-date">
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1200&q=85"
+          alt="A couple enjoying a special day together"
+          loading="lazy">
+      </div>
+      <div class="card-content">
+        <div class="progress-wrap">
+          <div class="progress-meta"><span>OUR LITTLE PLAN</span><span>Step 1 of 5</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:20%"></div></div>
+        </div>
+        <p class="eyebrow">First things first</p>
+        <h2>Which day works for you, Heer?</h2>
+        <p class="subtitle">Pick a date that suits you. We can plan around your schedule.</p>
+
+        <label class="field-label" for="dateInput">Our date</label>
+        <input class="text-input" type="date" id="dateInput" min="2026-10-19">
+
+        <p class="error-message" id="dateError">Please choose a date from 19 October 2026 onward.</p>
+
+        <div class="button-row">
+          <button class="btn btn-secondary" type="button" onclick="showScreen('screen-message')">← Back</button>
+          <button class="btn btn-primary" type="button" onclick="nextFromDate()">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIME -->
+    <section class="card screen hidden" id="screen-time">
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85"
+          alt="A warmly lit restaurant ready for an evening out"
+          loading="lazy">
+      </div>
+      <div class="card-content">
+        <div class="progress-wrap">
+          <div class="progress-meta"><span>OUR LITTLE PLAN</span><span>Step 2 of 5</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:40%"></div></div>
+        </div>
+        <p class="eyebrow">Let's find our moment</p>
+        <h2>What time would you prefer?</h2>
+        <p class="subtitle">Choose whatever feels most comfortable for you.</p>
+
+        <div class="options" id="timeOptions">
+          <button type="button" class="option" data-value="12:00 PM" onclick="selectOption('time','12:00 PM',this)">
+            <span class="option-icon">☀️</span>
+            <span class="option-title">Afternoon</span>
+            <span class="option-description">Around 12:00 PM</span>
+          </button>
+          <button type="button" class="option" data-value="3:00 PM" onclick="selectOption('time','3:00 PM',this)">
+            <span class="option-icon">🌸</span>
+            <span class="option-title">Late afternoon</span>
+            <span class="option-description">Around 3:00 PM</span>
+          </button>
+          <button type="button" class="option" data-value="6:00 PM" onclick="selectOption('time','6:00 PM',this)">
+            <span class="option-icon">🌅</span>
+            <span class="option-title">Early evening</span>
+            <span class="option-description">Around 6:00 PM</span>
+          </button>
+          <button type="button" class="option" data-value="7:30 PM" onclick="selectOption('time','7:30 PM',this)">
+            <span class="option-icon">🌙</span>
+            <span class="option-title">Evening</span>
+            <span class="option-description">Around 7:30 PM</span>
+          </button>
+        </div>
+
+        <label class="field-label" for="customTime">Or choose another time</label>
+        <input class="text-input" id="customTime" type="time" onchange="chooseCustomTime(this.value)">
+
+        <p class="error-message" id="timeError">Please choose a time.</p>
+
+        <div class="button-row">
+          <button class="btn btn-secondary" type="button" onclick="goToStep(0)">← Back</button>
+          <button class="btn btn-primary" type="button" onclick="nextFromTime()">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTFIT -->
+    <section class="card screen hidden" id="screen-outfit">
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1200&q=85"
+          alt="A man wearing a smart, stylish outfit"
+          loading="lazy">
+      </div>
+      <div class="card-content">
+        <div class="progress-wrap">
+          <div class="progress-meta"><span>OUR LITTLE PLAN</span><span>Step 3 of 5</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:60%"></div></div>
+        </div>
+        <p class="eyebrow">Dress code, perhaps?</p>
+        <h2>What colour should Abdul wear?</h2>
+        <p class="subtitle">Help me pick a colour for the day. You can choose my outfit colour.</p>
+
+        <div class="color-grid" id="colorOptions">
+          <button class="color-option" type="button" onclick="selectColor('Black',this)">
+            <span class="swatch" style="background:#29272b"></span>
+            <span class="color-name">Black</span>
+          </button>
+          <button class="color-option" type="button" onclick="selectColor('White',this)">
+            <span class="swatch" style="background:#fff;border-color:#ded7dc"></span>
+            <span class="color-name">White</span>
+          </button>
+          <button class="color-option" type="button" onclick="selectColor('Navy blue',this)">
+            <span class="swatch" style="background:#243c62"></span>
+            <span class="color-name">Navy blue</span>
+          </button>
+          <button class="color-option" type="button" onclick="selectColor('Beige',this)">
+            <span class="swatch" style="background:#d5c2a4"></span>
+            <span class="color-name">Beige</span>
+          </button>
+          <button class="color-option" type="button" onclick="selectColor('Olive green',this)">
+            <span class="swatch" style="background:#777e53"></span>
+            <span class="color-name">Olive green</span>
+          </button>
+          <button class="color-option" type="button" onclick="selectColor('Burgundy',this)">
+            <span class="swatch" style="background:#752f49"></span>
+            <span class="color-name">Burgundy</span>
+          </button>
+          <button class="color-option" type="button" onclick="selectColor('Grey',this)">
+            <span class="swatch" style="background:#98989e"></span>
+            <span class="color-name">Grey</span>
+          </button>
+          <button class="color-option" type="button" onclick="selectColor('Your choice',this)">
+            <span class="swatch" style="background:linear-gradient(135deg,#f0c8d5,#d8c9f1,#d5e9d5)"></span>
+            <span class="color-name">Surprise me</span>
+          </button>
+        </div>
+
+        <p class="error-message" id="colorError">Pick a colour for Abdul, please. ♡</p>
+
+        <div class="button-row">
+          <button class="btn btn-secondary" type="button" onclick="goToStep(1)">← Back</button>
+          <button class="btn btn-primary" type="button" onclick="nextFromOutfit()">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="card screen hidden" id="screen-location">
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=85"
+          alt="A beautiful city skyline at dusk"
+          loading="lazy">
+      </div>
+      <div class="card-content">
+        <div class="progress-wrap">
+          <div class="progress-meta"><span>OUR LITTLE PLAN</span><span>Step 4 of 5</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:80%"></div></div>
+        </div>
+        <p class="eyebrow">Where should we go?</p>
+        <h2>What kind of date sounds good?</h2>
+        <p class="subtitle">Your comfort comes first. Choose the setting you'd prefer.</p>
+
+        <div class="options" id="locationOptions">
+          <button class="option" type="button" onclick="selectLocation('At home',this)">
+            <span class="option-icon">🏡</span>
+            <span class="option-title">A cosy day at home</span>
+            <span class="option-description">Relax, talk, and enjoy good food.</span>
+          </button>
+          <button class="option" type="button" onclick="selectLocation('Go out',this)">
+            <span class="option-icon">🌆</span>
+            <span class="option-title">Let's go out</span>
+            <span class="option-description">A café, restaurant, or somewhere lovely.</span>
+          </button>
+        </div>
+
+        <label class="field-label" for="customPlace">Have a particular place in mind? (Optional)</label>
+        <input class="text-input" id="customPlace" type="text" maxlength="200" placeholder="Tell me the place you'd like to visit">
+
+        <div class="inline-note">
+          If you choose to go out, we can decide on a place together. No pressure to choose one now.
+        </div>
+
+        <p class="error-message" id="locationError">Please choose whether you'd prefer to stay in or go out.</p>
+
+        <div class="button-row">
+          <button class="btn btn-secondary" type="button" onclick="goToStep(2)">← Back</button>
+          <button class="btn btn-primary" type="button" onclick="nextFromLocation()">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOD -->
+    <section class="card screen hidden" id="screen-food">
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=85"
+          alt="An elegant dinner served at a table"
+          loading="lazy">
+      </div>
+      <div class="card-content">
+        <div class="progress-wrap">
+          <div class="progress-meta"><span>OUR LITTLE PLAN</span><span>Step 5 of 5</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+        </div>
+        <p class="eyebrow">The important question</p>
+        <h2>What would you like to eat, Heer?</h2>
+        <p class="subtitle">You get the final say. Tell me what you're in the mood for.</p>
+
+        <div class="options" id="foodOptions">
+          <button class="option" type="button" onclick="selectFood('Abdul chooses',this)">
+            <span class="option-icon">🤵</span>
+            <span class="option-title">Let Abdul decide</span>
+            <span class="option-description">Surprise me with something nice.</span>
+          </button>
+          <button class="option" type="button" onclick="selectFood('Heer chooses',this)">
+            <span class="option-icon">🍽️</span>
+            <span class="option-title">I have something in mind</span>
+            <span class="option-description">I'll tell you what I'd like to eat.</span>
+          </button>
+        </div>
+
+        <label class="field-label" for="foodChoice">Any dish or cuisine you're craving? (Optional)</label>
+        <input class="text-input" id="foodChoice" type="text" maxlength="200" placeholder="For example, pasta, biryani, or dessert">
+
+        <p class="error-message" id="foodError">Choose an option for the food, please. ♡</p>
+
+        <div class="button-row">
+          <button class="btn btn-secondary" type="button" onclick="goToStep(3)">← Back</button>
+          <button class="btn btn-primary" type="button" onclick="showFinalSummary()">Review our plan →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL REVIEW -->
+    <section class="card screen hidden" id="screen-summary">
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1200&q=85"
+          alt="Romantic flowers for a special date"
+          loading="lazy">
+      </div>
+      <div class="card-content">
+        <p class="eyebrow">One last thing</p>
+        <h2>Our little date plan ♡</h2>
+        <p class="subtitle">Here's what you've picked. Check everything before sending your answer.</p>
+
+        <div class="summary-list">
+          <div class="summary-item"><span class="summary-label">Date</span><span class="summary-value" id="summaryDate">—</span></div>
+          <div class="summary-item"><span class="summary-label">Time</span><span class="summary-value" id="summaryTime">—</span></div>
+          <div class="summary-item"><span class="summary-label">Abdul's outfit colour</span><span class="summary-value" id="summaryColor">—</span></div>
+          <div class="summary-item"><span class="summary-label">Our setting</span><span class="summary-value" id="summaryLocation">—</span></div>
+          <div class="summary-item"><span class="summary-label">Place</span><span class="summary-value" id="summaryPlace">—</span></div>
+          <div class="summary-item"><span class="summary-label">Food</span><span class="summary-value" id="summaryFood">—</span></div>
+        </div>
+
+        <p class="error-message" id="submitError"></p>
+
+        <div class="button-row">
+          <button class="btn btn-secondary" type="button" onclick="goToStep(4)">← Back</button>
+          <button class="btn btn-primary" id="submitButton" type="button" onclick="submitInvitation()">
+            Send my answer ♡
+          </button>
+        </div>
+        <p class="small-print">A little plan made with care, just for you.</p>
+      </div>
+    </section>
+
+    <!-- SUCCESS -->
+    <section class="card screen hidden" id="screen-success">
+      <div class="message-card">
+        <div class="message-icon">💗</div>
+        <p class="eyebrow">It's a plan!</p>
+        <h2>Thank you, Heer.</h2>
+        <p class="message-copy">
+          Your choices have been sent. Now Abdul can help turn this little plan into a lovely day.
+          I hope it makes you smile. ♡
+        </p>
+        <div class="heart-divider">♡ · ♡ · ♡</div>
+        <div class="summary-list">
+          <div class="summary-item"><span class="summary-label">Our date</span><span class="summary-value" id="successDate">—</span></div>
+          <div class="summary-item"><span class="summary-label">Time</span><span class="summary-value" id="successTime">—</span></div>
+          <div class="summary-item"><span class="summary-label">Food</span><span class="summary-value" id="successFood">—</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-note">Made with a little extra love ♡</div>
+  </main>
+
+  <!-- Keep your MP3 file in the same folder as this HTML file. -->
+  <audio id="backgroundMusic" loop preload="auto">
+    <source src="./alexgrohl-romantic-piano-546204.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="music-toggle" id="musicToggle" type="button" aria-label="Play background music" aria-pressed="false">
+    <span class="music-symbol" id="musicSymbol">♫</span>
+    <span id="musicLabel">Play music</span>
+  </button>
+
+  <script>
+    /*
+      CONFIGURATION
+      Replace the placeholder below with your deployed Google Apps Script
+      Web App URL ending in /exec.
+    */
+    const endpoint = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+
+    const state = {
+      date: '',
+      time: '',
+      color: '',
+      location: '',
+      customPlace: '',
+      food: '',
+      foodChoice: ''
+    };
+
+    const screenIds = [
+      'screen-date',
+      'screen-time',
+      'screen-outfit',
+      'screen-location',
+      'screen-food'
+    ];
+
+    const music = document.getElementById('backgroundMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    const musicLabel = document.getElementById('musicLabel');
+    const musicSymbol = document.getElementById('musicSymbol');
+
+    let musicStarted = false;
+    let submissionInProgress = false;
+
+    function showScreen(screenId) {
+      document.querySelectorAll('.screen').forEach(screen => {
+        screen.classList.add('hidden');
+      });
+
+      const screen = document.getElementById(screenId);
+      if (screen) {
+        screen.classList.remove('hidden');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function acceptInvitation() {
+      showScreen('screen-message');
+    }
+
+    function goToStep(stepIndex) {
+      if (stepIndex < 0 || stepIndex >= screenIds.length) return;
+      showScreen(screenIds[stepIndex]);
+    }
+
+    function showError(id, message) {
+      const element = document.getElementById(id);
+      if (!element) return;
+      if (message) element.textContent = message;
+      element.classList.add('visible');
+    }
+
+    function hideError(id) {
+      const element = document.getElementById(id);
+      if (element) element.classList.remove('visible');
+    }
+
+    function selectOption(field, value, button) {
+      state[field] = value;
+
+      const parent = button.closest('.options');
+      if (parent) {
+        parent.querySelectorAll('.option').forEach(option => {
+          option.classList.remove('selected');
+        });
+      }
+      button.classList.add('selected');
+
+      if (field === 'time') {
+        document.getElementById('customTime').value = '';
+        hideError('timeError');
+      }
+    }
+
+    function chooseCustomTime(value) {
+      if (!value) return;
+
+      const [hours, minutes] = value.split(':').map(Number);
+      const suffix = hours >= 12 ? 'PM' : 'AM';
+      const hour12 = hours % 12 || 12;
+      state.time = `${hour12}:${String(minutes).padStart(2, '0')} ${suffix}`;
+
+      document.querySelectorAll('#timeOptions .option').forEach(option => {
+        option.classList.remove('selected');
+      });
+      hideError('timeError');
+    }
+
+    function selectColor(value, button) {
+      state.color = value;
+
+      document.querySelectorAll('#colorOptions .color-option').forEach(option => {
+        option.classList.remove('selected');
+      });
+      button.classList.add('selected');
+      hideError('colorError');
+    }
+
+    function selectLocation(value, button) {
+      state.location = value;
+
+      document.querySelectorAll('#locationOptions .option').forEach(option => {
+        option.classList.remove('selected');
+      });
+      button.classList.add('selected');
+      hideError('locationError');
+    }
+
+    function selectFood(value, button) {
+      state.food = value;
+
+      document.querySelectorAll('#foodOptions .option').forEach(option => {
+        option.classList.remove('selected');
+      });
+      button.classList.add('selected');
+      hideError('foodError');
+    }
+
+    function nextFromDate() {
+      const dateInput = document.getElementById('dateInput');
+      const value = dateInput.value;
+
+      if (!value || value < '2026-10-19') {
+        showError('dateError');
+        return;
+      }
+
+      state.date = value;
+      hideError('dateError');
+      goToStep(1);
+    }
+
+    function nextFromTime() {
+      if (!state.time) {
+        showError('timeError');
+        return;
+      }
+
+      hideError('timeError');
+      goToStep(2);
+    }
+
+    function nextFromOutfit() {
+      if (!state.color) {
+        showError('colorError');
+        return;
+      }
+
+      hideError('colorError');
+      goToStep(3);
+    }
+
+    function nextFromLocation() {
+      if (!state.location) {
+        showError('locationError');
+        return;
+      }
+
+      state.customPlace = document.getElementById('customPlace').value.trim();
+      hideError('locationError');
+      goToStep(4);
+    }
+
+    function formatDate(value) {
+      if (!value) return '—';
+
+      const parts = value.split('-').map(Number);
+      const date = new Date(parts[0], parts[1] - 1, parts[2]);
+
+      return date.toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+    }
+
+    function showFinalSummary() {
+      if (!state.food) {
+        showError('foodError');
+        return;
+      }
+
+      state.customPlace = document.getElementById('customPlace').value.trim();
+      state.foodChoice = document.getElementById('foodChoice').value.trim();
+
+      document.getElementById('summaryDate').textContent = formatDate(state.date);
+      document.getElementById('summaryTime').textContent = state.time || '—';
+      document.getElementById('summaryColor').textContent = state.color || '—';
+      document.getElementById('summaryLocation').textContent = state.location || '—';
+      document.getElementById('summaryPlace').textContent = state.customPlace || 'We'll decide together';
+      document.getElementById('summaryFood').textContent =
+        state.foodChoice ? `${state.food} — ${state.foodChoice}` : state.food;
+
+      hideError('foodError');
+      hideError('submitError');
+      showScreen('screen-summary');
+    }
+
+    async function submitInvitation() {
+      if (submissionInProgress) return;
+
+      const errorElement = document.getElementById('submitError');
+      const submitButton = document.getElementById('submitButton');
+
+      if (!endpoint || endpoint === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
+        showError('submitError',
+          'The website still needs your Google Apps Script Web App URL. Add it in the endpoint setting near the bottom of index.html.');
+        return;
+      }
+
+      if (!state.date || !state.time || !state.color || !state.location || !state.food) {
+        showError('submitError', 'Please go back and complete all the required choices.');
+        return;
+      }
+
+      submissionInProgress = true;
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending…';
+      errorElement.classList.remove('visible');
+
+      /*
+        The first six fields below match the existing Google Sheet / Apps Script
+        structure. foodChoice and food are included too, but your Apps Script
+        must be updated if you want those additional fields saved in the Sheet.
+      */
+      const payload = {
+        answer: 'Yes',
+        date: state.date,
+        time: state.time,
+        color: state.color,
+        location: state.location,
+        customPlace: state.customPlace,
+        food: state.food,
+        foodChoice: state.foodChoice
+      };
+
+      try {
+        /*
+          Apps Script Web Apps commonly accept JSON sent as text/plain.
+          With no-cors, the browser cannot read the response body, so this
+          confirms the request was sent, not that the server validated it.
+        */
+        await fetch(endpoint, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        document.getElementById('successDate').textContent = formatDate(state.date);
+        document.getElementById('successTime').textContent = state.time;
+        document.getElementById('successFood').textContent =
+          state.foodChoice ? `${state.food} — ${state.foodChoice}` : state.food;
+
+        showScreen('screen-success');
+      } catch (error) {
+        console.error('Invitation submission failed:', error);
+        showError('submitError',
+          'Something went wrong while sending your choices. Please check your connection and try again.');
+      } finally {
+        submissionInProgress = false;
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send my answer ♡';
+      }
+    }
+
+    /* BACKGROUND MUSIC */
+
+    function updateMusicButton(isPlaying) {
+      musicLabel.textContent = isPlaying ? 'Pause music' : 'Play music';
+      musicSymbol.textContent = isPlaying ? '♫' : '♪';
+      musicToggle.setAttribute('aria-label', isPlaying ? 'Pause background music' : 'Play background music');
+      musicToggle.setAttribute('aria-pressed', String(isPlaying));
+    }
+
+    async function tryStartMusic() {
+      if (!music || musicStarted) return;
+
       try {
         await music.play();
-        button.textContent = '♫ Pause our song';
+        musicStarted = true;
+        updateMusicButton(true);
       } catch (error) {
-        button.textContent = '♡ Song unavailable — check MP3';
-        console.error('Music playback failed:', error);
+        // Autoplay may be blocked by the browser until a user gesture.
+        updateMusicButton(false);
       }
-    } else {
-      music.pause();
-      button.textContent = '♡ Play our song';
     }
-  });
 
-  music.addEventListener('ended', () => {
-    button.textContent = '♡ Play our song';
-  });
+    musicToggle.addEventListener('click', async () => {
+      if (music.paused) {
+        try {
+          await music.play();
+          musicStarted = true;
+          updateMusicButton(true);
+        } catch (error) {
+          updateMusicButton(false);
+          musicLabel.textContent = 'Tap to play';
+        }
+      } else {
+        music.pause();
+        musicStarted = false;
+        updateMusicButton(false);
+      }
+    });
 
-  music.addEventListener('error', () => {
-    button.textContent = '♡ Song unavailable — check MP3';
-    console.error('Could not load the music file:', music.error);
-  });
-})();
+    /*
+      Try autoplay first. If blocked, start on the first user interaction
+      anywhere on the page, except when the interaction is the music button.
+    */
+    document.addEventListener('pointerdown', event => {
+      if (event.target.closest('#musicToggle')) return;
+      if (music.paused) tryStartMusic();
+    }, { passive: true });
 
-</script>
+    document.addEventListener('keydown', event => {
+      if (event.target.closest('#musicToggle')) return;
+      if (music.paused) tryStartMusic();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      tryStartMusic();
+    });
+
+    music.addEventListener('play', () => updateMusicButton(true));
+    music.addEventListener('pause', () => updateMusicButton(false));
+    music.addEventListener('error', () => {
+      musicLabel.textContent = 'Music unavailable';
+      musicToggle.title = 'Check that the MP3 file is in the same folder as index.html';
+    });
+
+    // Keep this function available for any existing inline handlers.
+    window.acceptInvitation = acceptInvitation;
+  </script>
 </body>
 </html>
