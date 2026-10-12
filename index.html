@@ -244,6 +244,46 @@ select:focus {
     transition: none !important;
   }
 }
+  
+/* Dreamy romantic background */
+body {
+  background:
+    radial-gradient(ellipse at 15% 20%, #ffe0ec 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 80%, #f5dfff 0%, transparent 45%),
+    linear-gradient(135deg, #fff7fa, #ffeaf2, #f9efff);
+  background-attachment: fixed;
+}
+
+/* Gentle floating hearts */
+body::before {
+  content: "♡     ♥       ♡       ♥       ♡";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: rgba(211, 105, 145, 0.22);
+  font-size: 25px;
+  letter-spacing: 28px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+  animation: dreamyFloat 12s linear infinite;
+}
+
+@keyframes dreamyFloat {
+  from { transform: translateY(100vh); }
+  to   { transform: translateY(-100vh); }
+}
+
+#musicButton {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#musicButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px #d98aaa55;
+}
+
 </style>
 </head>
 <body>
@@ -428,5 +468,38 @@ function finish() {
 }
 
 </script>
+  
+<audio id="romanticMusic" loop preload="none">
+  <source src="romantic-piano.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicButton" type="button"
+  onclick="toggleMusic()"
+  style="position:fixed;bottom:20px;right:20px;z-index:9999;
+  border:none;border-radius:30px;padding:12px 18px;
+  background:#fff0f5;color:#a04469;box-shadow:0 4px 15px #0002;
+  cursor:pointer;font-size:14px;">
+  ♡ Play our song
+</button>
+
+<script>
+  async function toggleMusic() {
+    const music = document.getElementById('romanticMusic');
+    const button = document.getElementById('musicButton');
+
+    if (music.paused) {
+      try {
+        await music.play();
+        button.textContent = '♫ Pause our song';
+      } catch (error) {
+        alert('Please check that romantic-piano.mp3 was uploaded correctly.');
+      }
+    } else {
+      music.pause();
+      button.textContent = '♡ Play our song';
+    }
+  }
+</script>
+
 </body>
 </html>
