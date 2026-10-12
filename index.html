@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Invitation 💌</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; display: grid; place-items: center;
+  padding: 22px; font-family: Arial, sans-serif; color: #583b48;
+  background: linear-gradient(135deg, #fff1f3, #fce4ec, #fff8f0);
+}
+.card {
+  width: 100%; max-width: 440px; padding: 32px 24px;
+  background: rgba(255,255,255,.92); border-radius: 25px;
+  box-shadow: 0 12px 45px #9b53651a; text-align: center;
+}
+.heart { font-size: 48px; }
+h1 { font-size: 28px; margin: 12px 0; }
+p { line-height: 1.65; color: #806571; }
+button, select, input {
+  font: inherit; border-radius: 13px; padding: 13px;
+  width: 100%; margin-top: 12px;
+}
+button {
+  border: 0; background: #d96b8a; color: white;
+  cursor: pointer; font-weight: bold;
+}
+button.secondary { background: #f7e8ed; color: #704657; }
+button:focus, input:focus, select:focus { outline: 2px solid #b64f71; }
+label { display: block; text-align: left; margin-top: 16px; font-size: 14px; }
+input, select { border: 1px solid #ead6dd; background: white; color: #583b48; }
+.hidden { display: none; }
+.swatches { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 15px; }
+.swatch {
+  width: 66px; height: 66px; border-radius: 50%; border: 3px solid white;
+  box-shadow: 0 0 0 1px #ddd; cursor: pointer; padding: 0; margin: 0;
+}
+.swatch.selected { box-shadow: 0 0 0 3px #b64f71; }
+.small { font-size: 12px; }
+</style>
+</head>
+<body>
+<main class="card">
+  <section id="welcome">
+    <div class="heart">💌</div>
+    <h1>Hey, you!</h1>
+    <p>I have a little question for you...</p>
+    <h2>Would you like to meet me? ❤️</h2>
+    <button onclick="showStep('dateStep')">Yes, let's meet! 💕</button>
+    <button class="secondary" onclick="document.getElementById('noMessage').classList.remove('hidden')">Not right now</button>
+    <p id="noMessage" class="hidden">No worries at all 😊 Maybe another time!</p>
+  </section>
+
+  <section id="dateStep" class="hidden">
+    <div class="heart">📅</div>
+    <h1>Pick a date</h1>
+    <p>Which day works best for you?</p>
+    <label for="date">Our meetup date</label>
+    <input id="date" type="date" required>
+    <button onclick="nextDate()">Next →</button>
+    <button class="secondary" onclick="showStep('welcome')">Back</button>
+  </section>
+
+  <section id="timeStep" class="hidden">
+    <div class="heart">⏰</div>
+    <h1>Pick a time</h1>
+    <p>When should we meet?</p>
+    <label for="time">Preferred time</label>
+    <input id="time" type="time" required>
+    <button onclick="nextTime()">Next →</button>
+    <button class="secondary" onclick="showStep('dateStep')">Back</button>
+  </section>
+
+  <section id="colorStep" class="hidden">
+    <div class="heart">🎨</div>
+    <h1>Choose my outfit color</h1>
+    <p>What color would you like me to wear?</p>
+    <div class="swatches">
+      <button class="swatch" style="background:#f2a7bb" aria-label="Pink" onclick="pickColor('Pink',this)"></button>
+      <button class="swatch" style="background:#111111" aria-label="Black" onclick="pickColor('Black',this)"></button>
+      <button class="swatch" style="background:#ffffff" aria-label="White" onclick="pickColor('White',this)"></button>
+      <button class="swatch" style="background:#8ca889" aria-label="Sage green" onclick="pickColor('Sage green',this)"></button>
+      <button class="swatch" style="background:#7d263e" aria-label="Burgundy" onclick="pickColor('Burgundy',this)"></button>
+      <button class="swatch" style="background:#739ac5" aria-label="Blue" onclick="pickColor('Blue',this)"></button>
+    </div>
+    <p id="colorChosen">Choose your favorite 💗</p>
+    <button onclick="nextColor()">Next →</button>
+    <button class="secondary" onclick="showStep('timeStep')">Back</button>
+  </section>
+
+  <section id="placeStep" class="hidden">
+    <div class="heart">📍</div>
+    <h1>Where shall we meet?</h1>
+    <p>You can pick an idea or suggest your own place.</p>
+    <label for="place">Meeting place</label>
+    <select id="place">
+      <option value="">Choose a place...</option>
+      <option>Café ☕</option>
+      <option>Restaurant 🍽️</option>
+      <option>Rooftop 🌆</option>
+      <option>Park 🌳</option>
+      <option>Mall 🛍️</option>
+      <option value="Your suggestion">I'll suggest a place</option>
+    </select>
+    <label for="customPlace">Your suggested place (optional)</label>
+    <input id="customPlace" type="text" maxlength="150" placeholder="Type a place name">
+    <button onclick="finish()">See our plan ❤️</button>
+    <button class="secondary" onclick="showStep('colorStep')">Back</button>
+  </section>
+
+  <section id="finalStep" class="hidden">
+    <div class="heart">🥰</div>
+    <h1>It's a plan!</h1>
+    <p>Here's what you've picked:</p>
+    <p id="summary"></p>
+    <p class="small">Your choices are shown here. They haven't been sent to anyone yet.</p>
+    <button class="secondary" onclick="showStep('welcome')">Start again</button>
+  </section>
+</main>
+
+<script>
+const steps = ['welcome','dateStep','timeStep','colorStep','placeStep','finalStep'];
+let outfitColor = '';
+
+function showStep(id) {
+  steps.forEach(s => document.getElementById(s).classList.toggle('hidden', s !== id));
+}
+document.getElementById('date').min = new Date().toLocaleDateString('en-CA');
+
+function nextDate() {
+  if (!document.getElementById('date').value) {
+    alert('Please choose a date first 😊'); return;
+  }
+  showStep('timeStep');
+}
+function nextTime() {
+  if (!document.getElementById('time').value) {
+    alert('Please choose a time first 😊'); return;
+  }
+  showStep('colorStep');
+}
+function pickColor(color, button) {
+  outfitColor = color;
+  document.querySelectorAll('.swatch').forEach(b => b.classList.remove('selected'));
+  button.classList.add('selected');
+  document.getElementById('colorChosen').textContent = 'Your choice: ' + color + ' 💗';
+}
+function nextColor() {
+  if (!outfitColor) { alert('Please pick an outfit color 😊'); return; }
+  showStep('placeStep');
+}
+function finish() {
+  const place = document.getElementById('place').value;
+  const custom = document.getElementById('customPlace').value.trim();
+  if (!place) { alert('Please choose a meeting place 😊'); return; }
+  if (place === 'Your suggestion' && !custom) {
+    alert('Please type your suggested place 😊'); return;
+  }
+  const date = document.getElementById('date').value;
+  const time = document.getElementById('time').value;
+  document.getElementById('summary').innerHTML =
+    '<strong>📅 Date:</strong> ' + date + '<br><br>' +
+    '<strong>⏰ Time:</strong> ' + time + '<br><br>' +
+    '<strong>👕 My outfit:</strong> ' + outfitColor + '<br><br>' +
+    '<strong>📍 Place:</strong> ' +
+    (place === 'Your suggestion' ? custom : (custom || place));
+  showStep('finalStep');
+}
+</script>
+</body>
+</html>
