@@ -579,10 +579,10 @@
     <!-- DATE -->
     <section class="card screen hidden" id="screen-date">
       <div class="hero-image">
-        <img
-          src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1200&q=85"
-          alt="A couple enjoying a special day together"
-          loading="lazy">
+<img
+  src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=85"
+  alt="A couple sharing a romantic moment"
+  loading="lazy">
       </div>
       <div class="card-content">
         <div class="progress-wrap">
@@ -608,10 +608,10 @@
     <!-- TIME -->
     <section class="card screen hidden" id="screen-time">
       <div class="hero-image">
-        <img
-          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85"
-          alt="A warmly lit restaurant ready for an evening out"
-          loading="lazy">
+<img
+  src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85"
+  alt="A romantic evening moment together"
+  loading="lazy">
       </div>
       <div class="card-content">
         <div class="progress-wrap">
@@ -781,20 +781,19 @@
         <h2>What would you like to eat, Heer?</h2>
         <p class="subtitle">You get the final say. Tell me what you're in the mood for.</p>
 
-        <div class="options" id="foodOptions">
-          <button class="option" type="button" onclick="selectFood('Abdul chooses',this)">
-            <span class="option-icon">🤵</span>
-            <span class="option-title">Let Abdul decide</span>
-            <span class="option-description">Surprise me with something nice.</span>
-          </button>
-          <button class="option" type="button" onclick="selectFood('Heer chooses',this)">
-            <span class="option-icon">🍽️</span>
-            <span class="option-title">I have something in mind</span>
-            <span class="option-description">I'll tell you what I'd like to eat.</span>
-          </button>
-        </div>
+<div class="options" id="foodOptions">
+  <button class="option" type="button" onclick="selectFood('Abdul', this)">
+    <span class="option-icon">🤭</span>
+    <span class="option-title">Abdul</span>
+  </button>
 
-        <label class="field-label" for="foodChoice">Any dish or cuisine you're craving? (Optional)</label>
+  <button class="option" type="button" onclick="selectFood('Food', this)">
+    <span class="option-icon">🍽️</span>
+    <span class="option-title">Food</span>
+  </button>
+</div>
+
+    <label class="field-label" for="foodChoice">What would you like to eat, Heer?</label>
         <input class="text-input" id="foodChoice" type="text" maxlength="200" placeholder="For example, pasta, biryani, or dessert">
 
         <p class="error-message" id="foodError">Choose an option for the food, please. ♡</p>
@@ -991,15 +990,17 @@
       hideError('locationError');
     }
 
-    function selectFood(value, button) {
-      state.food = value;
+function selectFood(value, button) {
+  state.food = value;
 
-      document.querySelectorAll('#foodOptions .option').forEach(option => {
-        option.classList.remove('selected');
-      });
-      button.classList.add('selected');
-      hideError('foodError');
-    }
+  document.querySelectorAll('#foodOptions .option').forEach(option => {
+    option.classList.remove('selected');
+  });
+
+  button.classList.add('selected');
+
+  hideError('foodError');
+}
 
     function nextFromDate() {
       const dateInput = document.getElementById('dateInput');
@@ -1059,27 +1060,36 @@
       });
     }
 
-    function showFinalSummary() {
-      if (!state.food) {
-        showError('foodError');
-        return;
-      }
+function showFinalSummary() {
+  if (!state.food) {
+    showError('foodError');
+    return;
+  }
 
-      state.customPlace = document.getElementById('customPlace').value.trim();
-      state.foodChoice = document.getElementById('foodChoice').value.trim();
+  state.customPlace = document.getElementById('customPlace').value.trim();
+  state.foodChoice = document.getElementById('foodChoice').value.trim();
 
-      document.getElementById('summaryDate').textContent = formatDate(state.date);
-      document.getElementById('summaryTime').textContent = state.time || '—';
-      document.getElementById('summaryColor').textContent = state.color || '—';
-      document.getElementById('summaryLocation').textContent = state.location || '—';
-      document.getElementById('summaryPlace').textContent = state.customPlace || 'We\'ll decide together';
-      document.getElementById('summaryFood').textContent =
-        state.foodChoice ? `${state.food} — ${state.foodChoice}` : state.food;
+  if (state.food === 'Food' && !state.foodChoice) {
+    showError('foodError', 'What would you like to eat, Heer? ❤️');
+    return;
+  }
 
-      hideError('foodError');
-      hideError('submitError');
-      showScreen('screen-summary');
-    }
+  document.getElementById('summaryDate').textContent = formatDate(state.date);
+  document.getElementById('summaryTime').textContent = state.time || '—';
+  document.getElementById('summaryColor').textContent = state.color || '—';
+  document.getElementById('summaryLocation').textContent = state.location || '—';
+  document.getElementById('summaryPlace').textContent =
+    state.customPlace || 'We\'ll decide together';
+
+  document.getElementById('summaryFood').textContent =
+    state.food === 'Abdul'
+      ? 'Abdul also wants to eat you 🤭❤️'
+      : state.foodChoice;
+
+  hideError('foodError');
+  hideError('submitError');
+  showScreen('screen-summary');
+}
 
     async function submitInvitation() {
       if (submissionInProgress) return;
