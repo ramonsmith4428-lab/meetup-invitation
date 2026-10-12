@@ -244,7 +244,7 @@ label {
     <div class="heart">💌</div>
     <h1>Hey, Heer! ❤️</h1>
     <p>I have a little question for you, and I hope it makes you smile.</p>
-    <h2>Would you like to meet me? 🥹💕</h2>
+    <h2>Would you like to meet me? ❤️💕</h2>
     <button onclick="acceptInvitation()">Yes, let's meet! 💕</button>
     <button class="secondary" onclick="declineInvitation()">Not right now</button>
   </section>
@@ -370,7 +370,7 @@ label {
     <div class="heart">😘💋</div>
     <h1>It's a plan, Heer! ❤️</h1>
     <div class="message-text">
-      I can't wait to see you, Heer. 🥹💕
+      I can't wait to see you, Heer. 🥰💕
       I'm already looking forward to your smile, our little conversations,
       and the beautiful memory we'll make together.
       Until then, consider this a little kiss saved just for you. 😘💋❤️
@@ -446,9 +446,9 @@ function continueAfterMessage() {
 
 function acceptInvitation() {
   showMessage(
-    "You just made me smile! 🥹💕 I've been wanting to spend some time with you too, Heer. Just the thought of seeing you, sharing a few laughs, and making a beautiful little memory together makes me happy. I can't wait to see you. ♡",
+    "You just made me smile! 🥰💕 I've been wanting to spend some time with you too, Heer. Just the thought of seeing you, sharing a few laughs, and making a beautiful little memory together makes me happy. I can't wait to see you. ♡",
     'dateStep',
-    '🥹❤️',
+    '🥰❤️',
     'You made me smile!'
   );
 }
@@ -508,7 +508,7 @@ function nextColor() {
   answers.color = color;
 
   showMessage(
-    "It doesn't matter what colour I wear, Heer. ❤️ I only feel truly handsome when you're beside me, because your presence is the light that makes me shine. If I could keep your loving shadow beside me for a lifetime, I'd never want to stand in any other light. With you near me, I would always feel like the most handsome man in the world. 🥹💕",
+    "It doesn't matter what colour I wear, Heer. ❤️ I only feel truly handsome when you're beside me, because your presence is the light that makes me shine. If I could keep your loving shadow beside me for a lifetime, I'd never want to stand in any other light. With you near me, I would always feel like the most handsome man in the world. 🥰💕",
     'placeStep',
     '🎀❤️',
     'You make me shine'
@@ -549,7 +549,7 @@ function confirmOutside() {
   answers.customPlace = customPlace;
 
   showMessage(
-    "It might be a little difficult, Heer, but for you I'll still try to make it happen. ❤️ Seeing you would make the effort worthwhile, and I'd be happy just to spend that time with you. 🥹💕",
+    "It might be a little difficult, Heer, but for you I'll still try to make it happen. ❤️ Seeing you would make the effort worthwhile, and I'd be happy just to spend that time with you. 🥰💕",
     'foodStep',
     '🌆❤️',
     'For you, I'll try'
@@ -701,35 +701,37 @@ function restartInvitation() {
   showStep('welcome');
 }
 
-// Piano music controls
+
+/* Piano music controls */
 (() => {
   const music = document.getElementById('romanticMusic');
   const button = document.getElementById('musicButton');
 
-  async function playMusic() {
-    try {
-      await music.play();
-      button.textContent = '♫ Pause our song';
-    } catch (error) {
-      button.textContent = '♡ Play our song';
-    }
-  }
-
   button.addEventListener('click', async () => {
     if (music.paused) {
-      await playMusic();
+      try {
+        await music.play();
+        button.textContent = '♫ Pause our song';
+      } catch (error) {
+        button.textContent = '♡ Song unavailable — check MP3';
+        console.error('Music playback failed:', error);
+      }
     } else {
       music.pause();
       button.textContent = '♡ Play our song';
     }
   });
 
-  window.addEventListener('load', playMusic);
+  music.addEventListener('ended', () => {
+    button.textContent = '♡ Play our song';
+  });
 
-  document.addEventListener('pointerdown', () => {
-    if (music.paused) playMusic();
-  }, { once: true });
+  music.addEventListener('error', () => {
+    button.textContent = '♡ Song unavailable — check MP3';
+    console.error('Could not load the music file:', music.error);
+  });
 })();
+
 </script>
 </body>
 </html>
