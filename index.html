@@ -40,10 +40,10 @@
       align-items: center;
       font-family: "DM Sans", sans-serif;
       color: var(--ink);
-      background:
-        radial-gradient(circle at 10% 10%, rgba(245, 204, 216, 0.5), transparent 32%),
-        radial-gradient(circle at 90% 90%, rgba(255, 225, 229, 0.75), transparent 35%),
-        linear-gradient(135deg, #fff8f7, #fff0f4);
+background:
+  radial-gradient(ellipse at 15% 20%, rgba(255, 170, 200, 0.32), transparent 45%),
+  radial-gradient(ellipse at 85% 75%, rgba(232, 170, 210, 0.28), transparent 48%),
+  linear-gradient(135deg, #fff5f8 0%, #fce4ee 50%, #f8eafa 100%);
     }
 
     button, input {
@@ -566,11 +566,12 @@
 
 .floating-heart {
   position: absolute;
-  bottom: -50px;
-  color: rgba(190, 91, 130, 0.35);
-  font-size: 24px;
-  animation: floatHeart 14s linear infinite;
+  bottom: -60px;
+  color: rgba(190, 75, 120, 0.42);
+  font-size: 38px;
+  animation: floatHeart 16s linear infinite;
   user-select: none;
+  text-shadow: 0 0 12px rgba(255, 160, 190, 0.25);
 }
 
 @keyframes floatHeart {
@@ -604,11 +605,11 @@
   
 <div class="floating-hearts" aria-hidden="true">
   <span class="floating-heart" style="left: 8%; animation-delay: 0s;">♡</span>
-  <span class="floating-heart" style="left: 22%; animation-delay: 4s; font-size: 18px;">♥</span>
-  <span class="floating-heart" style="left: 38%; animation-delay: 8s; font-size: 28px;">♡</span>
-  <span class="floating-heart" style="left: 55%; animation-delay: 2s; font-size: 20px;">♥</span>
-  <span class="floating-heart" style="left: 70%; animation-delay: 6s; font-size: 26px;">♡</span>
-  <span class="floating-heart" style="left: 88%; animation-delay: 10s; font-size: 19px;">♥</span>
+  <span class="floating-heart" style="left: 22%; animation-delay: 4s; font-size: 30px;">♥</span>
+  <span class="floating-heart" style="left: 38%; animation-delay: 8s; font-size: 42px;">♡</span>
+  <span class="floating-heart" style="left: 55%; animation-delay: 2s; font-size: 30px;">♥</span>
+  <span class="floating-heart" style="left: 70%; animation-delay: 6s; font-size: 38px;">♡</span>
+  <span class="floating-heart" style="left: 88%; animation-delay: 10s; font-size: 40px;">♥</span>
 </div>
 
   <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false">
